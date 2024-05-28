@@ -31,12 +31,8 @@ To replicate the results of the thesis, follow these steps:
 This repository contains multiple scripts, each serving a specific purpose in the analysis pipeline. Here's a brief overview of each set of scripts:
 
 - `A_ThesisFunctions.py`: Contains utility functions used across multiple scripts, such as data loading, processing, saving, and others.
-- `B_DataPreprocessing_FinancialData.py`: Extracting info from the yahoo library to extract the S&P500 adjclose prices for 2016 to 2020. GSPC.xlsx
--   - **Input**:
-    - Raw Dataset: The raw dataset to be preprocessed.
-    - Preprocessing Parameters: Any parameters or configurations for preprocessing.
-  - **Output**:
-    - Preprocessed Dataset: The cleaned and transformed dataset ready for model training.
+- `B_DataPreprocessing_FinancialData.py`: Extracting info from the yahoo library to extract the S&P500 adjclose prices for 2016 to 2020. 
+-     Output: GSPC.xlsx
 
 - `C_DataPreprocessing_News.py`: Reading the csv file of AllTheNews2.0, preprocessing them and saving them in parquets files.
 - `D_FinBERT_Publishers_Categories.py`: Categorizing publishers type and storing a summary of the sentiment score per day per publisher type. 1 File per yearmonth stored in \Data\sa_publishers_category. Example: sa_publishers_category_201601.csv
