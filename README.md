@@ -47,13 +47,14 @@ This repository contains multiple scripts, each serving a specific purpose in th
 
 ### Correrlation Analysis for Topics Selection: Financial data, Sentiment Analysis and Topics 
 - `H_FinBERT_BERTopic_EBF_SP500_Corr.py`: Correlation analysis between the sentiment score of the topics and the returns of the S&P500
-- `I_FinBERT_BERTopic_EBF_Top_Topics_Summary.py`: Consolidating the sentiment score for each day for each topic (top 30 topics), Save a file per year. Data\sa_top_topics
+- `I_FinBERT_BERTopic_EBF_Top_Topics_Summary.py`: Consolidating the sentiment score for each day for each topic (top 30 topics). Saves a file per year. Obtained results are stored in Data\sa_top_topics.
 
 ### Data Consolidation: BERT based models and Financial Data
-- `J_Consolidated_Data_FinBERT_BERTopic_EBF.py`: Consolidates FinBERT_BERTopic and Financial Data,Save 1 file considering the 4 years. Data\consolidated_data  Example: consolidated_data_FinBERT_BERTopicModel2016Sample250k.csv
+- `J_Consolidated_Data_FinBERT_BERTopic_EBF.py`: Consolidates FinBERT_BERTopic and Financial Data. Save a file considering the 4 years. Obtained results are stored in 
+ Data\consolidated_data. Example: consolidated_data_FinBERT_BERTopicModel2016Sample250k.csv
 
 ### Data Consolidation: LDA-LM based models and Financial Data
-- `K_LDA_LM_EBF.py`: Consolidates LDA TopicModel and Loughran MacDonald dictionary sentiment analysis and Financial Data. Example: consolidated_data_LM_LDATopicModel2016Sample250k.csv Save 1 file considering the 4 years. Data\consolidated_data
+- `K_LDA_LM_EBF.py`: Consolidates LDA TopicModel and Loughran MacDonald dictionary sentiment analysis and Financial Data. Example: consolidated_data_LM_LDATopicModel2016Sample250k.csv Save a file considering the 4 years. Obtained results are stored in Data\consolidated_data.
 
 ### Classification Models
 - `L_Pred_Models_Exploration.py`: Sandbox for exploring the prediction models, parameters and use application to the data
