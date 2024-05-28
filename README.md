@@ -28,13 +28,10 @@ To replicate the results of the thesis, follow these steps:
 6. Explore the results and visualizations in the `results/` directory.
 
 ## Code Overview
+This repository contains multiple scripts, each serving a specific purpose in the analysis pipeline. Here's a brief overview of each set of scripts:
+- `A_ThesisFunctions.py`: Contains utility functions used across multiple scripts, such as data loading, processing, saving, and others.
 
-### A_ThesisFunctions.py
-Consolidation of the different functions for the execution of  the different codes.
-
-### B_DataPreprocessing_FinancialData.py
-Extracting info from the yahoo library to extract the S&P500 adjclose prices for 2016 to 2020
-GSPC.xlsx
+- `B_DataPreprocessing_FinancialData.py`: Extracting info from the yahoo library to extract the S&P500 adjclose prices for 2016 to 2020. GSPC.xlsx
 
 ### C_DataPreprocessing_News.py
 Reading the csv file of AllTheNews2.0, preprocessing them and saving them in parquets files.
