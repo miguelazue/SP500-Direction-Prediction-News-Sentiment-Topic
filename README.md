@@ -37,7 +37,7 @@ This repository contains multiple scripts, each serving a specific purpose in th
 
 ### Sentiment Analysis and Correlation Analysis by Publisher Category 
 - `D_FinBERT_Publishers_Categories.py`: Categorizing publishers type and storing a summary of the sentiment score per day per publisher type. 1 File per yearmonth stored in \Data\sa_publishers_category. Example: sa_publishers_category_201601.csv
-- `E_FinBERT_Publishers_SP500_Corr.py`: Understanding the correlation between the sentiment score of the publisher type and the returns of the S&P500
+- `E_FinBERT_Publishers_SP500_Corr.py`: Correlation analysis between the sentiment score of the publisher type and the returns of the S&P500
 
 ### Sentiment Analysis
 - `F_FinBERT_EBF_Headlines.py`: Executing and storing the sentiment analysis for all the EBF news. Parquet Files. (This intermediary dataset is not included in this repository due to its large size)
