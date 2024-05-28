@@ -18,14 +18,12 @@ The dataset used in this project is the "All the News 2" news articles dataset c
 
 ## Usage
 
-To replicate the results of the thesis, follow these steps:
+Different steps of the thesis can  be replicated. Data preparation, Sentiment Analysis, Topic Modelling and/or classification models. To replicate the results of the thesis, follow these steps:
 
-1. Install the required dependencies listed in `requirements.txt`.
-2. Download the data relevant to the code to be executed.
-3. Run the code of interest scripts to clean and prepare the data.
-4. Use the topic modeling and sentiment analysis scripts to extract features from the text data.
-5. Train and evaluate predictive models using the processed data.
-6. Explore the results and visualizations in the `results/` directory.
+1. Install the required dependencies listed in `requirements.txt` and the utility script `A_ThesisFunctions.py`
+2. Download the data relevant to the code to be executed from the /Data folder
+3. Run the code adjusting the desired parameters or path to store the results.
+4. Explore the obtained results.
 
 ## Code Overview
 This repository contains multiple scripts, each serving a specific purpose in the analysis pipeline. Here's a brief overview of each set of scripts:
