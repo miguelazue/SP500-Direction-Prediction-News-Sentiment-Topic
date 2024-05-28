@@ -36,26 +36,26 @@ This repository contains multiple scripts, each serving a specific purpose in th
 - `C_DataPreprocessing_News.py`: Reading the csv file of AllTheNews2.0, preprocessing them and saving them in parquets files.
 
 ### Correlation Analysis: Financial data and Sentiment Analysis by Publisher Category 
-- `D_FinBERT_Publishers_Categories.py`: Categorizing publishers type and storing a summary of the sentiment score per day per publisher type. 1 File per yearmonth stored in \Data\sa_publishers_category. Example: sa_publishers_category_201601.csv
+- `D_FinBERT_Publishers_Categories.py`: Categorizing publishers type and storing a summary of the sentiment score per day per publisher type. 1 File per yearmonth stored in `\Data\sa_publishers_category`. Example: `sa_publishers_category_201601.csv`
 - `E_FinBERT_Publishers_SP500_Corr.py`: Correlation analysis between the sentiment score of the publisher type and the returns of the S&P500
 
 ### Sentiment Analysis
 - `F_FinBERT_EBF_Headlines.py`: Executing and storing the sentiment analysis for all the EBF news. Parquet Files. (This intermediary dataset is not included in this repository due to its large size)
 
 ### Topic Modeling
-- `G_BERTopic_News.py`: Training and storing the topic models. LDA topics are stored in pickle files. Examples: BERTopicModel2016Sample250k and LDAmodel2016Headlines250k30Topics.pkl
+- `G_BERTopic_News.py`: Training and storing the topic models. LDA topics are stored in pickle files. Examples: `BERTopicModel2016Sample250k` and `LDAmodel2016Headlines250k30Topics.pkl`
 
 ### Correrlation Analysis for Topics Selection: Financial data, Sentiment Analysis and Topics 
 - `H_FinBERT_BERTopic_EBF_SP500_Corr.py`: Correlation analysis between the sentiment score of the topics and the returns of the S&P500
-- `I_FinBERT_BERTopic_EBF_Top_Topics_Summary.py`: Consolidating the sentiment score for each day for each topic (top 30 topics). Saves a file per year. Obtained results are stored in Data\sa_top_topics. Example: sa_top_topics_BERTopicModel2016Bodytext250k_news2019.csv.
+- `I_FinBERT_BERTopic_EBF_Top_Topics_Summary.py`: Consolidating the sentiment score for each day for each topic (top 30 topics). Saves a file per year. Obtained results are stored in `Data\sa_top_topics`. Example: `sa_top_topics_BERTopicModel2016Bodytext250k_news2019.csv`
 
 ### Data Consolidation: BERT based models and Financial Data
 - `J_Consolidated_Data_FinBERT_BERTopic_EBF.py`: Consolidates FinBERT_BERTopic and Financial Data. Save a file considering the 4 years. Obtained results are stored in 
- Data\consolidated_data. Example: consolidated_data_FinBERT_BERTopicModel2016Sample250k.csv
+ `Data\consolidated_data`. Example: `consolidated_data_FinBERT_BERTopicModel2016Sample250k.csv`
 
 ### Data Consolidation: LDA-LM based models and Financial Data
-- `K_LDA_LM_EBF.py`: Consolidates LDA TopicModel and Loughran MacDonald dictionary sentiment analysis and Financial Data. Save a file considering the 4 years. Obtained results are stored in Data\consolidated_data.  Example: consolidated_data_LM_LDATopicModel2016Sample250k.csv 
+- `K_LDA_LM_EBF.py`: Consolidates LDA TopicModel and Loughran MacDonald dictionary sentiment analysis and Financial Data. Save a file considering the 4 years. Obtained results are stored in `Data\consolidated_data`.  Example: `consolidated_data_LM_LDATopicModel2016Sample250k.csv` 
 
 ### Classification Models
 - `L_Pred_Models_Exploration.py`: Sandbox for exploring the prediction models, parameters and use application to the data
-- `M_Pred_Models_Evaluation.py`: Consolidating the results of the grid search procedure and the evaluation of the different prediction models. Data/Results. Example: consolidated_results4.xlsx
+- `M_Pred_Models_Evaluation.py`: Consolidating the results of the grid search procedure and the evaluation of the different prediction models. Obtained results are stored in `Data/Results`. Example: `consolidated_results4.xlsx`
