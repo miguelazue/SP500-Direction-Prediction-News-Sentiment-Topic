@@ -45,7 +45,7 @@ This repository contains multiple scripts, each serving a specific purpose in th
 ### Topic Modeling
 - `G_BERTopic_News.py`: Training and storing the topic models. LDA topics are stored in pickle files. Examples: `BERTopicModel2016Sample250k` and `LDAmodel2016Headlines250k30Topics.pkl`
 
-### Correrlation Analysis for Topics Selection: Financial data, Sentiment Analysis and Topics 
+### Correlation Analysis for Topics Selection: Financial data, Sentiment Analysis and Topics 
 - `H_FinBERT_BERTopic_EBF_SP500_Corr.py`: Correlation analysis between the sentiment score of the topics and the returns of the S&P500
 - `I_FinBERT_BERTopic_EBF_Top_Topics_Summary.py`: Consolidating the sentiment score for each day for each topic (top 30 topics). Saves a file per year. Obtained results are stored in `Data\sa_top_topics`. Example: `sa_top_topics_BERTopicModel2016Bodytext250k_news2019.csv`
 
