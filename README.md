@@ -4,7 +4,7 @@ This repository contains the code and results for the master thesis titled "Topi
 
 ## Overview
 
-In this project, I explored the use of topic modeling and sentiment analysis techniques to predict the direction of movement of the S&P 500 Index based on financial news data.
+In this project, topic modeling and sentiment analysis techniques are used to predict the direction of movement of the S&P 500 Index based on financial news data.
 
 ## Contents
 
