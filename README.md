@@ -35,7 +35,7 @@ This repository contains multiple scripts, each serving a specific purpose in th
 - `B_DataPreprocessing_FinancialData.py`: Extracting info from the yahoo library to extract the S&P500 adjclose prices for 2016 to 2020.
 - `C_DataPreprocessing_News.py`: Reading the csv file of AllTheNews2.0, preprocessing them and saving them in parquets files.
 
-### Sentiment Analysis and Correlation Analysis by Publisher Category 
+### Correlation Analysis: Financial data and Sentiment Analysis by Publisher Category 
 - `D_FinBERT_Publishers_Categories.py`: Categorizing publishers type and storing a summary of the sentiment score per day per publisher type. 1 File per yearmonth stored in \Data\sa_publishers_category. Example: sa_publishers_category_201601.csv
 - `E_FinBERT_Publishers_SP500_Corr.py`: Correlation analysis between the sentiment score of the publisher type and the returns of the S&P500
 
@@ -45,7 +45,7 @@ This repository contains multiple scripts, each serving a specific purpose in th
 ### Topic Modeling
 - `G_BERTopic_News.py`: Training and storing the topic models. Example: BERTopicModel2016Sample250k
 
-### Topic Modeling - Correrlation analysis and Topics Selection
+### Correrlation Analysis for Topics Selection: Financial data, Sentiment Analysis and Topics 
 - `H_FinBERT_BERTopic_EBF_SP500_Corr.py`: Correlation analysis between the sentiment score of the topics and the returns of the S&P500
 - `I_FinBERT_BERTopic_EBF_Top_Topics_Summary.py`: Consolidating the sentiment score for each day for each topic (top 30 topics), Save a file per year. Data\sa_top_topics
 
