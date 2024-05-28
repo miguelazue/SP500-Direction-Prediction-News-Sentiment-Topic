@@ -61,5 +61,6 @@ This repository contains multiple scripts, each serving a specific purpose in th
 - `M_Pred_Models_Evaluation.py`: Consolidating the results of the grid search procedure and the evaluation of the different prediction models. Obtained results are stored in `Data/Results`. Examples: `consolidated_results4.xlsx` and `fine_tuning_df4.xlsx`
 
 ### Data Consolidation: BERT based models adaptation to Bodytext
+While the previous code can be executed on a regular laptop, it's recommended to use a machine with higher processing power for evaluating the bodytext of news articles.
 - `N_FinBERT_EBF_Bodytext.py`: Adaptation for calculating the sentiment score of the bodytext instead of headlines.
 - `O_BERTopic_News_Bodytext.py`: Adaptation for training topic models using the bodytext instead of headlines.
