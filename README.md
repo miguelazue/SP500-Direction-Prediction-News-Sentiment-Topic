@@ -1,9 +1,4 @@
 # SP500-Direction-Prediction-News-Sentiment-Topic
-Repository for the master thesis: Topic Modeling and Sentiment Analysis for Predicting the Direction of Movement of the S&amp;P 500 Index Based on Financial News
-
-In the repository the code and results are made publicly available.
-
-# S&P500 Direction Prediction with News Sentiment and Topic Modeling
 
 This repository contains the code and results for my master thesis titled "Topic Modeling and Sentiment Analysis for Predicting the Direction of Movement of the S&P 500 Index Based on Financial News".
 
@@ -14,8 +9,11 @@ In this project, I explored the use of topic modeling and sentiment analysis tec
 ## Contents
 
 - `code/`: This directory contains the Python scripts used for data preprocessing, topic modeling, sentiment analysis, and model training.
-- `data/`: This directory contains the dataset used for training and evaluation.
 - `results/`: This directory contains the results of the analysis, including performance metrics, visualizations, and any other relevant outputs.
+
+
+## Dataset
+The dataset used in this project is the "All the News 2" news articles dataset, which can be found [here](https://components.one/datasets/all-the-news-2-news-articles-dataset). This dataset contains a comprehensive collection of news articles from various sources.
 
 ## Usage
 
