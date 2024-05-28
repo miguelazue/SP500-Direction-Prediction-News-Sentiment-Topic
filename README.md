@@ -57,5 +57,5 @@ This repository contains multiple scripts, each serving a specific purpose in th
 - `K_LDA_LM_EBF.py`: Consolidates LDA TopicModel and Loughran MacDonald dictionary sentiment analysis and Financial Data. Save a file considering the 4 years. Obtained results are stored in `Data\consolidated_data`.  Example: `consolidated_data_LM_LDATopicModel2016Sample250k.csv` 
 
 ### Classification Models
-- `L_Pred_Models_Exploration.py`: Sandbox for exploring the prediction models, parameters and use application to the data
+- `L_Pred_Models_Exploration.py`: Sandbox for exploring the prediction models, parameters and its use application with the data
 - `M_Pred_Models_Evaluation.py`: Consolidating the results of the grid search procedure and the evaluation of the different prediction models. Obtained results are stored in `Data/Results`. Example: `consolidated_results4.xlsx`
