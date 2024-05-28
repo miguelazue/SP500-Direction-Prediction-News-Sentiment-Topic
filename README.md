@@ -30,28 +30,33 @@ To replicate the results of the thesis, follow these steps:
 ## Code Overview
 This repository contains multiple scripts, each serving a specific purpose in the analysis pipeline. Here's a brief overview of each set of scripts:
 
+### Utility Script
 - `A_ThesisFunctions.py`: Contains utility functions used across multiple scripts, such as data loading, processing, saving, and others.
-  
-- `B_DataPreprocessing_FinancialData.py`: Extracting info from the yahoo library to extract the S&P500 adjclose prices for 2016 to 2020.
-  
-- `C_DataPreprocessing_News.py`: Reading the csv file of AllTheNews2.0, preprocessing them and saving them in parquets files.
-  
-- `D_FinBERT_Publishers_Categories.py`: Categorizing publishers type and storing a summary of the sentiment score per day per publisher type. 1 File per yearmonth stored in \Data\sa_publishers_category. Example: sa_publishers_category_201601.csv
 
+### Data Collection and Preparation
+- `B_DataPreprocessing_FinancialData.py`: Extracting info from the yahoo library to extract the S&P500 adjclose prices for 2016 to 2020.
+- `C_DataPreprocessing_News.py`: Reading the csv file of AllTheNews2.0, preprocessing them and saving them in parquets files.
+
+### Sentiment Analysis and Correlation Analysis by Publisher Category 
+- `D_FinBERT_Publishers_Categories.py`: Categorizing publishers type and storing a summary of the sentiment score per day per publisher type. 1 File per yearmonth stored in \Data\sa_publishers_category. Example: sa_publishers_category_201601.csv
 - `E_FinBERT_Publishers_SP500_Corr.py`: Understanding the correlation between the sentiment score of the publisher type and the returns of the S&P500
-  
+
+### Sentiment Analysis
 - `F_FinBERT_EBF_Headlines.py`: Executing and storing the sentiment analysis for all the EBF news. Parquet Files. (This intermediary dataset is not included in this repository due to its large size)
-  
+
+### Topic Modeling
 - `G_BERTopic_News.py`: Training and storing the topic models. Example: BERTopicModel2016Sample250k
-  
+
+### Topic Modeling - Correrlation analysis and Topics Selection
 - `H_FinBERT_BERTopic_EBF_SP500_Corr.py`: Correlation analysis between the sentiment score of the topics and the returns of the S&P500
-  
 - `I_FinBERT_BERTopic_EBF_Top_Topics_Summary.py`: Consolidating the sentiment score for each day for each topic (top 30 topics), Save a file per year. Data\sa_top_topics
-  
+
+### Data Consolidation: BERT based models and Financial Data
 - `J_Consolidated_Data_FinBERT_BERTopic_EBF.py`: Consolidates FinBERT_BERTopic and Financial Data,Save 1 file considering the 4 years. Data\consolidated_data  Example: consolidated_data_FinBERT_BERTopicModel2016Sample250k.csv
-  
+
+### Data Consolidation: LDA-LM based models and Financial Data
 - `K_LDA_LM_EBF.py`: Consolidates LDA TopicModel and Loughran MacDonald dictionary sentiment analysis and Financial Data. Example: consolidated_data_LM_LDATopicModel2016Sample250k.csv Save 1 file considering the 4 years. Data\consolidated_data
 
+### Classification Models
 - `L_Pred_Models_Exploration.py`: Sandbox for exploring the prediction models, parameters and use application to the data
-  
 - `M_Pred_Models_Evaluation.py`: Consolidating the results of the grid search procedure and the evaluation of the different prediction models. Data/Results/consolidated_results.xlsx
