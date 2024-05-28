@@ -10,7 +10,7 @@ In this project, topic modeling and sentiment analysis techniques are used to pr
 
 - `Code/`: This directory contains the Python scripts used for data preprocessing, topic modeling, sentiment analysis, classfication model training, grid search procedure and the evaluation of the classifications
 - `Data/`: This directory contains the processed datasets.
-- `Results/`: This directory contains the results of the analysis in csv and an excel file that consolidates the results in tables format.
+- `Results/`: This directory contains the results of the procedures stored in csv formay. An excel file is provided which consolidates the results in a format that is easier to interpret.
 
 
 ## Dataset
