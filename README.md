@@ -14,29 +14,27 @@ In this project, I explored the use of topic modeling and sentiment analysis tec
 
 
 ## Dataset
-The dataset used in this project is the "All the News 2" news articles dataset, which can be found [here](https://components.one/datasets/all-the-news-2-news-articles-dataset). This dataset contains a comprehensive collection of news articles from various sources.
+The dataset used in this project is the "All the News 2" news articles dataset created by Andrew Thompson. The dataset is available [here](https://components.one/datasets/all-the-news-2-news-articles-dataset). The dataset contains more than 2.5 million news articles from 27 publishers, spanning from January 2016 to April 2020.
 
 ## Usage
 
 To replicate the results of the thesis, follow these steps:
 
 1. Install the required dependencies listed in `requirements.txt`.
-2. Run the preprocessing scripts to clean and prepare the data.
-3. Use the topic modeling and sentiment analysis scripts to extract features from the text data.
-4. Train and evaluate predictive models using the processed data.
-5. Explore the results and visualizations in the `results/` directory.
+2. Download the data relevant to the code to be executed.
+3. Run the code of interest scripts to clean and prepare the data.
+4. Use the topic modeling and sentiment analysis scripts to extract features from the text data.
+5. Train and evaluate predictive models using the processed data.
+6. Explore the results and visualizations in the `results/` directory.
 
 ## Code Overview
 
 ### A_ThesisFunctions.py
 Consolidation of the different functions for the execution of  the different codes.
 
-
-
 ### B_DataPreprocessing_FinancialData.py
 Extracting info from the yahoo library to extract the S&P500 adjclose prices for 2016 to 2020
 GSPC.xlsx
-
 
 ### C_DataPreprocessing_News.py
 Reading the csv file of AllTheNews2.0, preprocessing them and saving them in parquets files.
@@ -62,11 +60,8 @@ Saving the topic models
 C:\Users\migue\Downloads\Thesis Data\BERTopics
 BERTopicModel2016Sample250k
 
-
 ### H_FinBERT_BERTopic_EBF_SP500_Corr.py
 Understanding the correlation between the sentiment score of the topics and the returns of the S&P500
-
-
 
 ### I_FinBERT_BERTopic_EBF_Top_Topics_Summary.py
 Save the sentiment score for each day for each topic (top 30 topics), Save a file per year
@@ -85,7 +80,6 @@ consolidated_data_LM_LDATopicModel2016Sample250k.csv
 
 ### L_Pred_Models_Exploration.py
 Sandbox for exploring the prediction models, parameters and use application to the data
-
 
 ### M_Pred_Models_Evaluation.py
 Consolidating the results of the prediction models
