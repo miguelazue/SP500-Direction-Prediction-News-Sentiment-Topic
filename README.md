@@ -25,10 +25,67 @@ To replicate the results of the thesis, follow these steps:
 4. Train and evaluate predictive models using the processed data.
 5. Explore the results and visualizations in the `results/` directory.
 
-## License
+## Code Overview
 
-This project is licensed under the [MIT License](LICENSE).
+### A_ThesisFunctions.py
+Consolidation of the different functions for the execution of  the different codes.
 
-## Acknowledgments
 
-I would like to thank my thesis supervisor and any other individuals or organizations who supported this research.
+
+### B_DataPreprocessing_FinancialData.py
+Extracting info from the yahoo library to extract the S&P500 adjclose prices for 2016 to 2020
+GSPC.xlsx
+
+
+### C_DataPreprocessing_News.py
+Reading the csv file of AllTheNews2.0, preprocessing them and saving them in parquets files.
+C:\Users\migue\Downloads\Thesis Data\FilteredNewsParquets
+
+
+### D_FinBERT_Publishers_Categories.py
+Categorizing publishers type and storing a summary of the sentiment score per day per publisher type.
+1 File per yearmonth
+C:\Users\migue\Dropbox\JKU EBA Masters\Master Thesis\Data\sa_publishers_category
+sa_publishers_category_201601.csv
+
+### E_FinBERT_Publishers_SP500_Corr.py
+Understanding the correlation between the sentiment score of the publisher type and the returns of the S&P500
+
+### F_FinBERT_EBF_Headlines.py
+Executing and storing the sentiment analysis for all the EBF news. Parquet Files
+C:\Users\migue\Downloads\Thesis Data\SentimentAnalysisEBF
+
+
+### G_BERTopic_News.py
+Saving the topic models
+C:\Users\migue\Downloads\Thesis Data\BERTopics
+BERTopicModel2016Sample250k
+
+
+### H_FinBERT_BERTopic_EBF_SP500_Corr.py
+Understanding the correlation between the sentiment score of the topics and the returns of the S&P500
+
+
+
+### I_FinBERT_BERTopic_EBF_Top_Topics_Summary.py
+Save the sentiment score for each day for each topic (top 30 topics), Save a file per year
+C:\Users\migue\Dropbox\JKU EBA Masters\Master Thesis\Data\sa_top_topics
+
+### J_Consolidated_Data_FinBERT_BERTopic_EBF.py
+Consolidates FinBERT_BERTopic and Financial Data,Save 1 file considering the 4 years.
+consolidated_data_FinBERT_BERTopicModel2016Sample250k.csv
+C:\Users\migue\Dropbox\JKU EBA Masters\Master Thesis\Data\consolidated_data
+
+### K_LDA_LM_EBF.py
+Consolidates LDA TopicModel and Loughran MacDonald dictionary sentiment analysis and Financial Data.
+Save 1 file considering the 4 years.
+C:\Users\migue\Dropbox\JKU EBA Masters\Master Thesis\Data\consolidated_data
+consolidated_data_LM_LDATopicModel2016Sample250k.csv
+
+### L_Pred_Models_Exploration.py
+Sandbox for exploring the prediction models, parameters and use application to the data
+
+
+### M_Pred_Models_Evaluation.py
+Consolidating the results of the prediction models
+consolidated_results.xlsx
