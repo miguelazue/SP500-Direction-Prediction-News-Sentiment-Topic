@@ -8,7 +8,7 @@ In this project, I explored the use of topic modeling and sentiment analysis tec
 
 ## Contents
 
-- `code/`: This directory contains the Python scripts used for data preprocessing, topic modeling, sentiment analysis, and model training.
+- `code/`: This directory contains the Python scripts used for data preprocessing, topic modeling, sentiment analysis, classfication model training, grid search procedure and the evaluation of the classifications
 - `data/`: This directory contains the dataset used for training and evaluation.
 - `results/`: This directory contains the results of the analysis in csv and an excel file that consolidates the results in tables format.
 
