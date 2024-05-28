@@ -18,7 +18,7 @@ The dataset used in this project is the "All the News 2" news articles dataset c
 
 ## Usage
 
-The different steps of the thesis can be replicated, including data preparation, sentiment analysis, topic modeling, and/or classification models. To replicate the results of the thesis, follow these steps:
+The different steps of the thesis can be replicated, including data preparation, sentiment analysis, topic modeling, classification model training and evaluation. To replicate the results of the thesis, follow these steps:
 
 1. Install the required dependencies listed in `requirements.txt` and the utility script `A_ThesisFunctions.py`
 2. Download the relevant data from the `/Data` directory. 
