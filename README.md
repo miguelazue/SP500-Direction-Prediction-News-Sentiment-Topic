@@ -1,6 +1,6 @@
 # SP500-Direction-Prediction-News-Sentiment-Topic
 
-This repository contains the code and results for my master thesis titled "Topic Modeling and Sentiment Analysis for Predicting the Direction of Movement of the S&P 500 Index Based on Financial News".
+This repository contains the code and results for the master thesis titled "Topic Modeling and Sentiment Analysis for Predicting the Direction of Movement of the S&P 500 Index Based on Financial News".
 
 ## Overview
 
