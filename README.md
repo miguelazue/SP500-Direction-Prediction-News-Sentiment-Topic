@@ -58,4 +58,4 @@ This repository contains multiple scripts, each serving a specific purpose in th
 
 ### Classification Models
 - `L_Pred_Models_Exploration.py`: Sandbox for exploring the prediction models, parameters and its use application with the data
-- `M_Pred_Models_Evaluation.py`: Consolidating the results of the grid search procedure and the evaluation of the different prediction models. Obtained results are stored in `Data/Results`. Example: `consolidated_results4.xlsx`
+- `M_Pred_Models_Evaluation.py`: Consolidating the results of the grid search procedure and the evaluation of the different prediction models. Obtained results are stored in `Data/Results`. Examples: `consolidated_results4.xlsx` and `fine_tuning_df4.xlsx`
