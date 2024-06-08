@@ -22,10 +22,10 @@ The dataset used in this project is the "All the News 2" news articles dataset c
 
 The thesis can be fully replicated or if different steps of the thesis can be replicated, including data preparation, sentiment analysis, topic modeling, classification model training and evaluation. To replicate the results of the thesis, follow these steps:
 
-1. Install the required dependencies listed in `requirements.txt` and the utility script `A_ThesisFunctions.py`
-2. Download the [dataset](https://components.one/datasets/all-the-news-2-news-articles-dataset). the already preprocessed data from the `/Data` directory. 
-3. Run the desired code corresponding to the step you want to replicate. You may need to adjust the code with desired parameters.
-4. Explore the obtained results to analyze the findings of the replicated steps.
+1. Install the required dependencies listed in `requirements.txt` and download the utility script `A_ThesisFunctions.py`
+2. Download the [dataset](https://components.one/datasets/all-the-news-2-news-articles-dataset) if you want to replicate all the thesis. If a specific step of the thesis wants to be replicated, you can downloard the already preprocessed data from the `/Data` directory. 
+4. Run the desired code corresponding to the step you want to replicate. You may need to adjust the code with desired parameters.
+5. Explore the obtained results to analyze the findings of the replicated steps.
 
 *Recommendations: Some files are heavy, the components dataset  has a size  8.8 GB and a trained topic model can exceed a 1GB in size. Due to the large size, it is recommended to store these files locally instead of using cloud storage (e.g., Dropbox or GitHub). At the begining of every code is a section named "Path Definition", in which the paths can be defined with the current working directory or with a predefined directory. 
 
