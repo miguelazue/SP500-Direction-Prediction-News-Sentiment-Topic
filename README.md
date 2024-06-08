@@ -71,7 +71,7 @@ While the previous codes can be executed on a regular laptop as they used the he
 - `O_BERTopic_News_Bodytext.py`: Adaptation for training topic models using the bodytext instead of headlines.
 
 
-## Directories Detail
+## Directories Overview
 
 ### Data
 This directory is available in the Github Repository
