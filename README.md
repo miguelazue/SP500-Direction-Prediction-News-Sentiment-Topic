@@ -91,4 +91,4 @@ It is recommended to define a local directory for the inital dataset to be store
 - `BERTopics/`: folder with the trained topic models.
   
 ### Formatted Results
-Folder with excel files with the results in a format that is easier to understand and interpret
+Folder with excel files that display the results in a format that is easier to understand and interpret
