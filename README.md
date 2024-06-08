@@ -27,7 +27,8 @@ The different steps of the thesis can be replicated, including data preparation,
 3. Run the desired code corresponding to the step you want to replicate. You may need to adjust the code with desired parameters or modify the paths to read the input data and store the results.
 4. Explore the obtained results to analyze the findings of the replicated steps.
 
-*Recommendations: Some files are  heavy (components dataset which has a size  8.8 GB and a trained topic model can exceed a 1GB). Due to their size, it is recommended to store these files locally instead of using cloud storage (e.g., Dropbox or GitHub). At the begining of every code, absolute paths are indicated for these cases and a relative path for the rest.
+*Recommendations: Some files are heavy, the components dataset  has a size  8.8 GB and a trained topic model can exceed a 1GB in size. Due to the large size, it is recommended to store these files locally instead of using cloud storage (e.g., Dropbox or GitHub). At the begining of every code is a section named "Path Definition", in which the paths can be defined with the current working directory or with a predefined directory. 
+
 
 ## Code Overview
 This repository contains multiple scripts, each serving a specific purpose in the analysis pipeline. Here's a brief overview of each set of scripts:
@@ -68,3 +69,9 @@ This repository contains multiple scripts, each serving a specific purpose in th
 While the previous codes can be executed on a regular laptop as they used the headlines as inputs, it's recommended to use a machine with higher processing power for evaluating the bodytext of news articles.
 - `N_FinBERT_EBF_Bodytext.py`: Adaptation for calculating the sentiment score of the bodytext instead of headlines.
 - `O_BERTopic_News_Bodytext.py`: Adaptation for training topic models using the bodytext instead of headlines.
+
+
+## Directories Structure
+
+### Data
+### Heavy Data
