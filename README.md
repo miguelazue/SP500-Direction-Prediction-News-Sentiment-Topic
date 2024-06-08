@@ -84,7 +84,7 @@ This directory is available in the Github Repository with intermediate data file
 ### Heavy Data - Directory
 It is recommended to define a local directory for the inital dataset to be stored and some preprocessed data files. The inital dataset is around 8 GB in size, and some intermediate files are greater than 1GB. Expect this directory to be above 15GB if you run all the codes.
 
-- `all-the-news-2-1/`: Folder downloaded from "All the News 2.0" with the file all-the-news-2-1.csv
+- `all-the-news-2-1/`: Folder downloaded from "All the News 2.0" containing the file all-the-news-2-1.csv
 - `filtered_news_parquets/`: Folder with the processed parquet files organized by Publisher category and by year.
 - `sentiment_analysis_EBF/`: Folder with the processed parquet files of the EBF news with the calculated sentiment score.
 - `sentiment_analysis_full_article_EBF/`: Folder with the processed parquet files of the EBF news with the full article and with the calculated sentiment score. 
