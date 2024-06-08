@@ -74,4 +74,18 @@ While the previous codes can be executed on a regular laptop as they used the he
 ## Directories Structure
 
 ### Data
+Preprocessed data and results. csv files and xlsx files
+- `consolidated_data`:
+- `consolidated_results`:
+- `sa_publishers_category`:
+- `sa_top_topics`:
+
 ### Heavy Data
+It is recommended that a local directory is used to store these kind of data as the size can exceed the 1GB.
+- `all-the-news-2-1`:
+- `FilteredNewsParquets`:
+- `SentimentAnalysisEBF`:
+- `BERTopics`: folder with the trained topic models
+  
+### Formatted Results
+Folder with excel files with the results in a specific format.
