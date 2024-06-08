@@ -16,7 +16,7 @@ In this project, topic modeling and sentiment analysis techniques are used to pr
 
 
 ## Dataset
-The dataset used in this project is the "All the News 2" news articles dataset created by Andrew Thompson. The dataset is available [here](https://components.one/datasets/all-the-news-2-news-articles-dataset). The dataset contains more than 2.5 million news articles from 27 publishers, spanning from January 2016 to April 2020.
+The dataset used in this project is the "All the News 2.0". Consolidation of news articles dataset created by Andrew Thompson. The dataset is available [here](https://components.one/datasets/all-the-news-2-news-articles-dataset). The dataset contains more than 2.5 million news articles from 27 publishers, spanning from January 2016 to April 2020.
 
 ## Usage
 
