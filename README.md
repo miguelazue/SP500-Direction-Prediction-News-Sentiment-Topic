@@ -73,7 +73,7 @@ While the previous codes can be executed on a regular laptop as they used the he
 
 ## Directories Overview
 
-### Data
+### Data - Directory
 This directory is available in the Github Repository
 
 - `consolidated_data/`: Folder with files that consolidate the preprocessed data
@@ -81,8 +81,8 @@ This directory is available in the Github Repository
 - `sa_publishers_category/`: Folder with the summary files that contain the average sentiment score per day for every publisher category
 - `sa_top_topics/`: Folder with the summary files that contain the average sentiment score per day for each topic (From the top 30 most correlated topics).
 
-### Heavy Data
-This directory is not available in the Gihub Repository as it stores large files. It is recommended that a local directory is used to store these kind of data as the size can exceed the 1GB. Specify the directory in the Path Definition of the codes.
+### Heavy Data - Directory
+It is recommended to define a local directory for the inital dataset to be stored and some preprocessed data files. The inital dataset is around 8 GB in size and some other files are greater than a 1GB in size.
 
 - `all-the-news-2-1/`: Folder with the file all-the-news-2-1.csv
 - `FilteredNewsParquets/`: Folder with the processed parquet files organized by Publisher category and by year.
