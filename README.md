@@ -74,7 +74,7 @@ While the previous codes can be executed on a regular laptop as they used the he
 ## Directories Overview
 
 ### Data - Directory
-This directory is available in the Github Repository
+This directory is available in the Github Repository with intermediate data files and results.
 
 - `consolidated_data/`: Folder with files that consolidate the preprocessed data
 - `consolidated_results/`: Folder for storing the obtained results
