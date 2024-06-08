@@ -20,11 +20,11 @@ The dataset used in this project is the "All the News 2" news articles dataset c
 
 ## Usage
 
-The different steps of the thesis can be replicated, including data preparation, sentiment analysis, topic modeling, classification model training and evaluation. To replicate the results of the thesis, follow these steps:
+The thesis can be fully replicated or if different steps of the thesis can be replicated, including data preparation, sentiment analysis, topic modeling, classification model training and evaluation. To replicate the results of the thesis, follow these steps:
 
 1. Install the required dependencies listed in `requirements.txt` and the utility script `A_ThesisFunctions.py`
-2. Download the [dataset](https://components.one/datasets/all-the-news-2-news-articles-dataset) or the already preprocessed data from the `/Data` directory. 
-3. Run the desired code corresponding to the step you want to replicate. You may need to adjust the code with desired parameters or modify the paths to read the input data and store the results.
+2. Download the [dataset](https://components.one/datasets/all-the-news-2-news-articles-dataset). the already preprocessed data from the `/Data` directory. 
+3. Run the desired code corresponding to the step you want to replicate. You may need to adjust the code with desired parameters.
 4. Explore the obtained results to analyze the findings of the replicated steps.
 
 *Recommendations: Some files are heavy, the components dataset  has a size  8.8 GB and a trained topic model can exceed a 1GB in size. Due to the large size, it is recommended to store these files locally instead of using cloud storage (e.g., Dropbox or GitHub). At the begining of every code is a section named "Path Definition", in which the paths can be defined with the current working directory or with a predefined directory. 
@@ -48,7 +48,7 @@ This repository contains multiple scripts, each serving a specific purpose in th
 - `F_FinBERT_EBF_Headlines.py`: Executing and storing the sentiment analysis for all the EBF news in Parquet Files. (The resulting processed dataset is not included in this repository due to its large size)
 
 ### Topic Modeling
-- `G_BERTopic_News.py`: Training and storing the topic models. LDA topics are stored in pickle files. Examples: `BERTopicModel2016Sample250k` and `LDAmodel2016Headlines250k30Topics.pkl`.(These files are not included in this repository due to its large size)
+- `G_BERTopic_News.py`: Training and storing the topic models. LDA topics are stored in pickle files. Examples: `BERTopicModel2016Sample250k` and `LDAmodel2016Headlines250k30Topics.pkl`.(The resulting files are not included in this repository due to its large size)
 
 ### Correlation Analysis for Topics Selection: Financial data, Sentiment Analysis and Topics 
 - `H_FinBERT_BERTopic_EBF_SP500_Corr.py`: Correlation analysis between the sentiment score of the topics and the returns of the S&P500
