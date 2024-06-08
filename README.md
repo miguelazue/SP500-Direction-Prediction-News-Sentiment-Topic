@@ -63,7 +63,7 @@ This repository contains multiple scripts, each serving a specific purpose in th
 
 ### Classification Models
 - `L_Pred_Models_Exploration.py`: Sandbox for exploring the prediction models, parameters and its use application with the data
-- `M_Pred_Models_Evaluation.py`: Consolidating the results of the grid search procedure and the evaluation of the different prediction models. Obtained results are stored in `Data/Results`. Examples: `consolidated_results4.xlsx` and `fine_tuning_df4.xlsx`
+- `M_Pred_Models_Evaluation.py`: Consolidating the results of the grid search procedure and the evaluation of the different prediction models. Obtained results are stored in `Data/consolidated_results/`. Examples: `consolidated_results4.xlsx` and `fine_tuning_df4.xlsx`
 
 ### Data Consolidation: BERT based models adaptation to Bodytext
 While the previous codes can be executed on a regular laptop as they used the headlines as inputs, it's recommended to use a machine with higher processing power for evaluating the bodytext of news articles.
