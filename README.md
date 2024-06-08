@@ -71,21 +71,23 @@ While the previous codes can be executed on a regular laptop as they used the he
 - `O_BERTopic_News_Bodytext.py`: Adaptation for training topic models using the bodytext instead of headlines.
 
 
-## Directories Structure
+## Directories Detail
 
 ### Data
-Preprocessed data and results. csv files and xlsx files
+This directory is available in the Github Repository
+
 - `consolidated_data/`: Preprocessed data
 - `consolidated_results/`: Folder for storing the obtained results
 - `sa_publishers_category/`: Folder with the summary files that contain the average sentiment score per day for every publisher category
 - `sa_top_topics/`: Folder with the summary files that contain the average sentiment score per day for each topic (From the top 30 most correlated topics).
 
 ### Heavy Data
-It is recommended that a local directory is used to store these kind of data as the size can exceed the 1GB.
+This directory is not available in the Gihub Repository as it stores large files. It is recommended that a local directory is used to store these kind of data as the size can exceed the 1GB. Specify the directory in the Path Definition of the codes.
+
 - `all-the-news-2-1/`: Folder with the all-the-news-2-1.csv file
 - `FilteredNewsParquets/`: Folder with the processed parquet files organized by Publisher category and by year.
 - `SentimentAnalysisEBF/`: Folder with the processed parquet files of the EBF news with the calculated sentiment score.
 - `BERTopics/`: folder with the trained topic models.
   
 ### Formatted Results
-Folder with excel files with the results in a specific format.
+Folder with excel files with the results in a format that is easier to understand and interpret
