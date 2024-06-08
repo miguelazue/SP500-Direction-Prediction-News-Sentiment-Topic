@@ -75,17 +75,17 @@ While the previous codes can be executed on a regular laptop as they used the he
 
 ### Data
 Preprocessed data and results. csv files and xlsx files
-- `consolidated_data`:
-- `consolidated_results`:
-- `sa_publishers_category`:
-- `sa_top_topics`:
+- `consolidated_data/`: Preprocessed data
+- `consolidated_results/`: Folder for storing the obtained results
+- `sa_publishers_category/`: Folder with the summary files that contain the average sentiment score per day for every publisher category
+- `sa_top_topics/`: Folder with the summary files that contain the average sentiment score per day for each topic (From the top 30 most correlated topics).
 
 ### Heavy Data
 It is recommended that a local directory is used to store these kind of data as the size can exceed the 1GB.
-- `all-the-news-2-1`:
-- `FilteredNewsParquets`:
-- `SentimentAnalysisEBF`:
-- `BERTopics`: folder with the trained topic models
+- `all-the-news-2-1/`: Folder with the all-the-news-2-1.csv file
+- `FilteredNewsParquets/`: Folder with the processed parquet files organized by Publisher category and by year.
+- `SentimentAnalysisEBF/`: Folder with the processed parquet files of the EBF news with the calculated sentiment score.
+- `BERTopics/`: folder with the trained topic models.
   
 ### Formatted Results
 Folder with excel files with the results in a specific format.
