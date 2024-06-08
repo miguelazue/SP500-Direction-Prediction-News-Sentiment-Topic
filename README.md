@@ -38,14 +38,14 @@ This repository contains multiple scripts, each serving a specific purpose in th
 
 ### Data Collection and Preparation
 - `B_DataPreprocessing_FinancialData.py`: Extracting info from the yahoo library to extract the S&P500 adjclose prices for 2016 to 2020.
-- `C_DataPreprocessing_News.py`: Reading the csv file of AllTheNews2.0, preprocessing them and saving them in parquets files.
+- `C_DataPreprocessing_News.py`: Reading the csv file of AllTheNews2.0, preprocessing them and saving them in parquets files. (The resulting processed dataset is not included in this repository due to its large size)
 
 ### Correlation Analysis: Financial data and Sentiment Analysis by Publisher Category 
 - `D_FinBERT_Publishers_Categories.py`: Categorizing publishers type and storing a summary of the sentiment score per day per publisher type. 1 File per yearmonth stored in `/Data/sa_publishers_category/`. Example: `sa_publishers_category_201601.csv`
 - `E_FinBERT_Publishers_SP500_Corr.py`: Correlation analysis between the sentiment score of the publisher type and the returns of the S&P500
 
 ### Sentiment Analysis
-- `F_FinBERT_EBF_Headlines.py`: Executing and storing the sentiment analysis for all the EBF news in Parquet Files. (This processed dataset is not included in this repository due to its large size)
+- `F_FinBERT_EBF_Headlines.py`: Executing and storing the sentiment analysis for all the EBF news in Parquet Files. (The resulting processed dataset is not included in this repository due to its large size)
 
 ### Topic Modeling
 - `G_BERTopic_News.py`: Training and storing the topic models. LDA topics are stored in pickle files. Examples: `BERTopicModel2016Sample250k` and `LDAmodel2016Headlines250k30Topics.pkl`.(These files are not included in this repository due to its large size)
