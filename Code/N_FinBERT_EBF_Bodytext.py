@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Jan 12 14:19:23 2023
+
+Created on July 7 8:59:23 2023
+
 https://huggingface.co/ProsusAI/finbert
 
 #How to use finbert
@@ -30,10 +32,35 @@ from datetime import datetime, timedelta
 
 import os
 
-os.chdir("C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/")
+#-------------------------
+#-----Path Definition-----
+#-------------------------
 
-from A_ThesisFunctions import *
+# Use the current working directory or define the path for the working directory
+current_dir = os.getcwd()  # Use the current working directory
+current_dir = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/"  # Define the path for the working directory
 
+consolidated_data_path = os.path.join(current_dir,'Data/consolidated_data/')
+consolidated_results_path = os.path.join(current_dir,'Data/consolidated_results/')
+categories_data_path = os.path.join(current_dir,'Data/sa_publishers_category/')
+topics_sa_path = os.path.join(current_dir,'Data/sa_top_topics/')
+
+
+# Heavy Data directory - Recommended to store this data locally
+heavy_data_path = "C:/Users/migue/Downloads/Thesis Data/"
+parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/')
+ebf_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/EBF_News/')
+ebf_sa_path = os.path.join(heavy_data_path,'SentimentAnalysisEBF/')
+ebf_sa_full_article_path = os.path.join(heavy_data_path,'SentimentAnalysisFullArticleEBF/')
+topics_path = os.path.join(heavy_data_path,'BERTopics/')
+
+
+#-------------------------
+#-Load Utility Script-----
+#-------------------------
+
+os.chdir(current_dir)
+import A_ThesisFunctions as tf
 
 
 
@@ -73,8 +100,8 @@ def sentiment_analysis_on_large_str(str_to_analyze):
         first_split =current_text[:half_position]
         second_split =current_text[half_position:]
 
-        # Find a dot around the half. So that splits contain full sencences
-        # If doesnt find a dot, the split will cut the text in exact half cutting the sentence at the split position
+        # Find a dot around the half. So that the splits contain full sentences
+        # If doesn't find a dot, the split will cut the text in exact half cutting the sentence at the split position
         # Cases like U.S. or dots that don't end the sentence will be cut.
         dot_position = first_split.find(".",len(first_split)-200)
         if dot_position != -1:
@@ -230,8 +257,7 @@ for iteration_year in years:
         print("Processing Year "+str(iteration_year)+" - month "+str(iteration_month))
 
         #Read all parquets
-        parquet_path =  "C:/Users/migue/Downloads/Thesis Data/FilteredNewsParquets/EBF_News/"
-        dataset = pq.ParquetDataset(parquet_path,use_legacy_dataset=False,filters=[("year","=",iteration_year)])
+        dataset = pq.ParquetDataset(ebf_parquet_path,use_legacy_dataset=False,filters=[("year","=",iteration_year)])
 
         #To Pandas by selecting Columns
         news_df = dataset.read(columns=["date","title","article","publication","section","year"]).to_pandas()
@@ -252,7 +278,7 @@ for iteration_year in years:
 
 
         #news_df = news_df.rename(columns={"article": "title"})
-        preprocessed_df = preprocess_news_date(news_df)
+        preprocessed_df = tf.preprocess_news_date(news_df)
 
         preprocessed_df.head()
         
@@ -269,9 +295,9 @@ for iteration_year in years:
         print("Execution time:", elapsed_time_minutes, "minutes")
 
         #SAVE
-        current_path = "C:/Users/migue/Downloads/Thesis Data/SentimentAnalysisFullArticleEBF/"+str(iteration_year)+"/"+str(iteration_year*100+iteration_month)+"/"
+        current_path = ebf_sa_full_article_path+str(iteration_year)+"/"+str(iteration_year*100+iteration_month)+"/"
         
-        df_to_multiple_plarquets(df_to_slice = sa_df,save_path = current_path)
+        tf.df_to_multiple_plarquets(df_to_slice = sa_df,save_path = current_path)
 
 
 
@@ -283,9 +309,7 @@ for iteration_year in years:
 #-----Read Results--------
 #-------------------------
 
-#full_path = "C:/Users/migue/Downloads/Thesis Data/SentimentAnalysisEBF/"
-
-#dataset1 = pq.ParquetDataset(full_path,use_legacy_dataset=False)
+#dataset1 = pq.ParquetDataset(ebf_sa_full_article_path,use_legacy_dataset=False)
 #new_test = dataset1.read(columns=["headline","date","year","sa_score"]).to_pandas()
 #Converting date to datetime format
 #new_test['date'] = pd.to_datetime(new_test['date'], format='%Y-%m-%d')

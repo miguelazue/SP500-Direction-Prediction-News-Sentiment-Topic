@@ -18,11 +18,34 @@ import matplotlib.pyplot as plt
 
 import os
 
-os.chdir("C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/")
+#-------------------------
+#-----Path Definition-----
+#-------------------------
 
+# Use the current working directory or define the path for the working directory
+current_dir = os.getcwd()  # Use the current working directory
+current_dir = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/"  # Define the path for the working directory
+
+consolidated_data_path = os.path.join(current_dir,'Data/consolidated_data/')
+consolidated_results_path = os.path.join(current_dir,'Data/consolidated_results/')
+categories_data_path = os.path.join(current_dir,'Data/sa_publishers_category/')
+topics_sa_path = os.path.join(current_dir,'Data/sa_top_topics/')
+
+
+# Heavy Data directory - Recommended to store this data locally
+heavy_data_path = "C:/Users/migue/Downloads/Thesis Data/"
+parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/')
+ebf_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/EBF_News/')
+ebf_sa_path = os.path.join(heavy_data_path,'SentimentAnalysisEBF/')
+topics_path = os.path.join(heavy_data_path,'BERTopics/')
+
+
+#-------------------------
+#-Load Utility Script-----
+#-------------------------
+
+os.chdir(current_dir)
 import A_ThesisFunctions as tf
-
-
 
 
 #-------------------------
@@ -55,7 +78,6 @@ selected_topics = selected_topics_250k
 
 
 #Topics Path
-topics_path = "C:/Users/migue/Downloads/Thesis Data/BERTopics/"
 
 #current_topic_model = BERTopic.load(topics_path+"topics_model2016")
 #current_topic_model = BERTopic.load(topics_path+"topics_model2016_100topics")
@@ -71,13 +93,11 @@ current_topic_model = BERTopic.load(topics_path+model_name)
 #-------------------------
 
 
-sa_ebf_path = "C:/Users/migue/Downloads/Thesis Data/SentimentAnalysisEBF/"
-#sa_ebf_path = "C:/Users/migue/Downloads/Thesis Data/SentimentAnalysisEBF/2017/"
-sa_ebf_path_year = sa_ebf_path + news_year + '/'
-sa_ebf_path_year
+ebf_sa_path_year = ebf_sa_path + news_year + '/'
+ebf_sa_path_year
 
 
-dataset = pq.ParquetDataset(sa_ebf_path_year,use_legacy_dataset=False)
+dataset = pq.ParquetDataset(ebf_sa_path_year,use_legacy_dataset=False)
 news_sa_df = dataset.read(columns=["headline","date","year","sa_score"]).to_pandas()
 
 #Converting date to datetime format
@@ -115,8 +135,6 @@ filtered_df = new_documents_df[new_documents_df['topic'].isin(selected_topics)]
 
 summarized_filtered_df = tf.summarize_sa_topic(filtered_df,n_dates_threshold=1,min_prob=-1)
 
-
-topics_sa_path = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Data/sa_top_topics/"
 
 save_name = "sa_top_topics_BERTopicModel"+model_year+"Headlines"+model_headlines_count+"k_news"+news_year+'.csv'
 

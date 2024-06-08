@@ -33,12 +33,34 @@ import torch
 import time
 
 
+import os
+
+#-------------------------
+#-----Path Definition-----
+#-------------------------
+
+# Use the current working directory or define the path for the working directory
+current_dir = os.getcwd()  # Use the current working directory
+current_dir = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/"  # Define the path for the working directory
+
+consolidated_data_path = os.path.join(current_dir,'Data/consolidated_data/')
+consolidated_results_path = os.path.join(current_dir,'Data/consolidated_results/')
+categories_data_path = os.path.join(current_dir,'Data/sa_publishers_category/')
+topics_sa_path = os.path.join(current_dir,'Data/sa_top_topics/')
+
+
+# Heavy Data directory - Recommended to store this data locally
+heavy_data_path = "C:/Users/migue/Downloads/Thesis Data/"
+
+parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/')
+ebf_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/EBF_News/')
+ebf_sa_path = os.path.join(heavy_data_path,'SentimentAnalysisEBF/')
+topics_path = os.path.join(heavy_data_path,'BERTopics/')
+
+
 #-------------------------
 #--Load Financial News----
 #-------------------------
-
-ebf_parquet_path =  "C:/Users/migue/Downloads/Thesis Data/FilteredNewsParquets/EBF_News/"
-
 
 #Read EBF Parquets
 dataset = pq.ParquetDataset(ebf_parquet_path,use_legacy_dataset=False)
@@ -105,30 +127,32 @@ topics_info
 
 
 # topic_model.get_document_info(documents)
-#Topics Path
-topics_path = "C:/Users/migue/Downloads/Thesis Data/BERTopics/"
 
-#BERTopicModel2016Headlines20k
 
 #save model
 # topic_model.save(topics_path+"BERTopicModel2016Headlines250k")
 
 
 
+
+#-------------------------------
+#--Load and Explore BERTopic----
+#-------------------------------
+
+
 topic_model.get_topic_freq().head(11)
 
 #load model
-Topic_model2016 = BERTopic.load(topics_path+"BERTopicModel2016Headlines250k")
+#Topic_model2016 = BERTopic.load(topics_path+"BERTopicModel2016Headlines250k")
+Topic_model2016 = BERTopic.load(topics_path+"BERTopicModel2016Headlines20k")
 
+
+# Visualize information from the Topic Model
 
 #Topic_model2016.get_topic_info()
 
 formatted_results = Topic_model2016.get_topic_info()[:20]
 formatted_results2 = Topic_model2016.get_topic_info()[-20:]
-tables_path = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Document/AdaptedTablesPython/"
 
-formatted_results.to_excel(tables_path+"EBF_topics.xlsx")
-formatted_results2.to_excel(tables_path+"EBF_topics2.xlsx")
-
-#Topic_model2016.get_representative_docs(2)
+Topic_model2016.get_representative_docs(2)
 #Topic_model2016.topic_representations_[10]

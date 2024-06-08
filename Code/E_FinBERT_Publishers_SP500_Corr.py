@@ -25,15 +25,34 @@ from datetime import datetime, timedelta
 import seaborn as sn
 import matplotlib.pyplot as plt
 
+import os
 
+#-------------------------
+#-----Path Definition-----
+#-------------------------
+
+
+# Use the current working directory or define the path for the working directory
+current_dir = os.getcwd()  # Use the current working directory
+current_dir = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/"  # Define the path for the working directory
+
+consolidated_data_path = os.path.join(current_dir,'Data/consolidated_data/')
+consolidated_results_path = os.path.join(current_dir,'Data/consolidated_results/')
+categories_data_path = os.path.join(current_dir,'Data/sa_publishers_category/')
+topics_sa_path = os.path.join(current_dir,'Data/sa_top_topics/')
+
+# Heavy Data directory
+heavy_data_path = "C:/Users/migue/Downloads/Thesis Data/"
+parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/')
+ebf_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/EBF_News/')
+ebf_sa_path = os.path.join(heavy_data_path,'SentimentAnalysisEBF/')
+topics_path = os.path.join(heavy_data_path,'BERTopics/')
 
 #-------------------------
 #---Load Financial Data---
 #-------------------------
 
-gspc_path = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Data/"
-
-gspc_data = pd.read_csv(gspc_path+"GSPC.csv")
+gspc_data = pd.read_csv(consolidated_data_path+"GSPC.csv")
 
 
 selected_columns = ["formatted_date","time_trend","adjclose","returns"]
@@ -56,7 +75,6 @@ gspc_sample = gspc_df.copy()
 #-------------------------
 
 #LOAD
-categories_data_path = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Data/sa_publishers_category/"
 
 #sa_summary = pd.read_csv(categories_data_path+"sa_publishers_category_201710.csv")
 #sa_summary['date'] = pd.to_datetime(sa_summary['date'], format='%Y-%m-%d')
@@ -498,9 +516,8 @@ with open('logit_results.html', 'w') as file:
 
 # RESULTS AS EXCEL
 
-save_path = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Document/AdaptedTablesPython/"
-summary_df1.to_excel(save_path+'summary_df1.xlsx', index=False)
-summary_df2.to_excel(save_path+'summary_df2.xlsx', index=False)
+summary_df1.to_excel(consolidated_results_path+'summary_df1.xlsx', index=False)
+summary_df2.to_excel(consolidated_results_path+'summary_df2.xlsx', index=False)
     
 # Convert summary to DataFrame
 results_df = pd.concat([table for table in summary.tables], axis=1)

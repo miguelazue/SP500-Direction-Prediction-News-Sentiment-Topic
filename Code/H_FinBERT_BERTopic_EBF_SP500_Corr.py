@@ -26,8 +26,32 @@ import matplotlib.pyplot as plt
 
 import os
 
-os.chdir("C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/")
+#-------------------------
+#-----Path Definition-----
+#-------------------------
 
+# Use the current working directory or define the path for the working directory
+current_dir = os.getcwd()  # Use the current working directory
+current_dir = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/"  # Define the path for the working directory
+
+consolidated_data_path = os.path.join(current_dir,'Data/consolidated_data/')
+consolidated_results_path = os.path.join(current_dir,'Data/consolidated_results/')
+categories_data_path = os.path.join(current_dir,'Data/sa_publishers_category/')
+topics_sa_path = os.path.join(current_dir,'Data/sa_top_topics/')
+
+# Heavy Data directory - Recommended to store this data locally
+heavy_data_path = "C:/Users/migue/Downloads/Thesis Data/"
+parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/')
+ebf_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/EBF_News/')
+ebf_sa_path = os.path.join(heavy_data_path,'SentimentAnalysisEBF/')
+topics_path = os.path.join(heavy_data_path,'BERTopics/')
+
+
+#-------------------------
+#-Load Utility Script-----
+#-------------------------
+
+os.chdir(current_dir)
 import A_ThesisFunctions as tf
 
 
@@ -40,7 +64,7 @@ import A_ThesisFunctions as tf
 
 # BERTopic model to be loaded
 model_year = "2016"
-model_headlines_count = "250"
+model_headlines_count = "20"
 
 # News to be loaded and processed by the BERTopic model
 news_year = "2016"
@@ -52,9 +76,7 @@ news_year = "2016"
 #---Load Financial Data---
 #-------------------------
 
-gspc_path = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Data/"
-
-gspc_data = pd.read_csv(gspc_path+"GSPC.csv")
+gspc_data = pd.read_csv(consolidated_data_path+"GSPC.csv")
 
 
 selected_columns = ["formatted_date","time_trend","adjclose","returns"]
@@ -78,9 +100,6 @@ gspc_sample.head()
 #-------------------------
 
 
-#Topics Path
-topics_path = "C:/Users/migue/Downloads/Thesis Data/BERTopics/"
-
 #current_topic_model = BERTopic.load(topics_path+"topics_model2016")
 #current_topic_model = BERTopic.load(topics_path+"topics_model2016_100topics")
 
@@ -90,16 +109,14 @@ model_name = "BERTopicModel" + model_year + "Headlines" + model_headlines_count 
 
 current_topic_model = BERTopic.load(topics_path+model_name)
 
-#current_topic_model.get_topic_info()
+current_topic_model.get_topic_info()
 
 #-------------------------
 #-------Load SA EBF-------
 #-------------------------
 
 
-sa_ebf_path = "C:/Users/migue/Downloads/Thesis Data/SentimentAnalysisEBF/"
-#sa_ebf_path = "C:/Users/migue/Downloads/Thesis Data/SentimentAnalysisEBF/2017/"
-sa_ebf_path_year = sa_ebf_path + news_year + '/'
+sa_ebf_path_year = ebf_sa_path + news_year + '/'
 # sa_ebf_path_year
 
 
@@ -184,10 +201,12 @@ top_returns_corr_df['topic_number'] = pd.to_numeric(top_returns_corr_df['topic_n
 top_returns_corr_df = top_returns_corr_df.sort_values(by="topic_number",ascending=True)
 
 
-file_path2 = "C:/Users/migue/Downloads/Thesis Data/BERTopics/"
+
+# Save Top Returns Corr
 file_name2 = "top_returns_corr_df_" + "topics_BERTopicModel"+model_year+"Headlines"+model_headlines_count+"k_news"+news_year+'.csv'
 file_name2
-top_returns_corr_df.to_csv(file_path2+file_name2)
+
+top_returns_corr_df.to_csv(topics_path+file_name2)
 
 
 
@@ -211,9 +230,7 @@ columns = ["Topic","Name"]
 top_topics_indfo_df = top_topics_indfo_df.reset_index(drop=True)
 formatted_results3 = top_topics_indfo_df[columns].head(30)
 
-tables_path = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Document/AdaptedTablesPython/"
-
-formatted_results3.to_excel(tables_path+"top_correlated_topics.xlsx")
+formatted_results3.to_excel(topics_path+"top_correlated_topics.xlsx")
 
 # Code for seeing selected topics and the correlation values
 top_topics_indfo_df.dtypes
@@ -324,10 +341,6 @@ topics_corr_summary.to_csv(topics_path+file_name)
 
 
 
-
-
-
-
 #-------------------------
 #--COMPARE SUMMARY FILES--
 #-------------------------
@@ -336,7 +349,6 @@ topics_corr_summary.to_csv(topics_path+file_name)
 
 # Load correlations between topics and returns 
 # Topics Path
-topics_path = "C:/Users/migue/Downloads/Thesis Data/BERTopics/"
 
 model_year = "2016"
 headlines_size = "250"

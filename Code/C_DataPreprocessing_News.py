@@ -17,16 +17,40 @@ import numpy as np
 import pyarrow as pa
 import pyarrow.parquet as pq
 
+import os
+
+#-------------------------
+#-----Path Definition-----
+#-------------------------
+
+
+# Use the current working directory or define the path for the working directory
+current_dir = os.getcwd()  # Use the current working directory
+current_dir = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/"  # Define the path for the working directory
+
+consolidated_data_path = os.path.join(current_dir,'Data/consolidated_data/')
+consolidated_results_path = os.path.join(current_dir,'Data/consolidated_results/')
+categories_data_path = os.path.join(current_dir,'Data/sa_publishers_category/')
+topics_sa_path = os.path.join(current_dir,'Data/sa_top_topics/')
+
+# Heavy Data directory
+heavy_data_path = "C:/Users/migue/Downloads/Thesis Data/"
+parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/')
+ebf_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/EBF_News/')
+ebf_sa_path = os.path.join(heavy_data_path,'SentimentAnalysisEBF/')
+topics_path = os.path.join(heavy_data_path,'BERTopics/')
 
 #-------------------------
 #-----Saving Parquets-----
 #-------------------------
+# Due to its large size, it is preprocessed to beb saved in parquet files
 
 file1 = "all-the-news-2-1.csv"
 
-path =  "C:/Users/migue/Downloads/Thesis Data/all-the-news-2-1/"
+news_path = os.path.join(heavy_data_path,'all-the-news-2-1/')
 
-filename = path+file1
+filename = news_path+file1
+
 
 type_dict = {
     'year':'int16',
@@ -215,24 +239,23 @@ selected_columns = [
 
 #EBF
 ebf_filtered_news = read_and_filter_chunks(df_chunks=my_file,relevant_columns = selected_columns, relevant_publishers = ebf_publishers)
-ebf_parquet_path =  "C:/Users/migue/Downloads/Thesis Data/FilteredNewsParquets/EBF_News/"
+ebf_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/EBF_News/')
 df_to_multiple_plarquets(df_to_slice = ebf_filtered_news,save_path=ebf_parquet_path)
 
 #GEN
 gen_filtered_news = read_and_filter_chunks(df_chunks=my_file,relevant_columns = selected_columns, relevant_publishers = gen_publishers)
-gen_parquet_path =  "C:/Users/migue/Downloads/Thesis Data/FilteredNewsParquets/GEN_News/"
+gen_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/GEN_News/')
 df_to_multiple_plarquets(df_to_slice = gen_filtered_news,save_path=gen_parquet_path)
 
 #POL
 pol_filtered_news = read_and_filter_chunks(df_chunks=my_file,relevant_columns = selected_columns, relevant_publishers = pol_publishers)
-pol_parquet_path =  "C:/Users/migue/Downloads/Thesis Data/FilteredNewsParquets/POL_News/"
+pol_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/POL_News/')
 df_to_multiple_plarquets(df_to_slice = pol_filtered_news,save_path=pol_parquet_path)
 
 #ENT
 ent_filtered_news = read_and_filter_chunks(df_chunks=my_file,relevant_columns = selected_columns, relevant_publishers = ent_publishers)
-ent_parquet_path =  "C:/Users/migue/Downloads/Thesis Data/FilteredNewsParquets/ENT_News/"
+ent_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/ENT_News/')
 df_to_multiple_plarquets(df_to_slice = ent_filtered_news,save_path=ent_parquet_path)
-
 
 
 
@@ -269,11 +292,11 @@ import pyarrow.parquet as pq
 
 
 #Paths
-parquet_path =  "C:/Users/migue/Downloads/Thesis Data/FilteredNewsParquets/"
-ebf_parquet_path =  "C:/Users/migue/Downloads/Thesis Data/FilteredNewsParquets/EBF_News/"
-gen_parquet_path =  "C:/Users/migue/Downloads/Thesis Data/FilteredNewsParquets/GEN_News/"
-pol_parquet_path =  "C:/Users/migue/Downloads/Thesis Data/FilteredNewsParquets/POL_News/"
-ent_parquet_path =  "C:/Users/migue/Downloads/Thesis Data/FilteredNewsParquets/ENT_News/"
+parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/')
+ebf_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/EBF_News/')
+gen_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/GEN_News/')
+pol_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/POL_News/')
+ent_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/ENT_News/')
 
 #Read all Parquets
 dataset = pq.ParquetDataset(parquet_path,use_legacy_dataset=False)
@@ -319,7 +342,10 @@ news_df.groupby(["publication"])["date"].min()
 #dataset.read().to_pandas()
 
 
-#Overview of the Data
+
+#-------------------------
+#----Data Overview--------
+#-------------------------
 
 
 len(news_df)
@@ -360,51 +386,6 @@ test3
 
 selected_df = news_df[news_df["section"].isin(relevant_sections)]
 selected_df.publication.value_counts()
-
-
-
-#----------------------
-#-------Pyarrow--------
-#----------------------
-
-#-
-#Write and Read in a Single Parquet
-#-
-
-#table = pa.Table.from_pandas(filtered_news)
-#pq.write_table(table, parquet_path+"filtered_news.parquet")
-#dataset = pq.ParquetDataset(parquet_path+"filtered_news.parquet")
-#dataset.read().to_pandas()
-
-
-
-
-#-
-#Write and Read in partitioned parquets
-#-
-
-#Write in multiple parquets, partitioned by year
-#pq.write_to_dataset(table,root_path= parquet_path, partition_cols=["year"])
-
-#Read whole ParquetDaset
-#dataset = pq.ParquetDataset(parquet_path,use_legacy_dataset=False)
-
-#Read by Filter
-#dataset = pq.ParquetDataset(parquet_path,use_legacy_dataset=False,filters=[("publication","=","Business Insider")])
-
-#Read by Filtered year
-#dataset = pq.ParquetDataset(parquet_path,use_legacy_dataset=False,filters=[("year","=",2016)])
-
-
-
-
-
-#-------------------------
-#------Pandas Parquet-----
-#-------------------------
-#chunk.to_parquet(parquet_path+"my_chunk.parquet",engine="pyarrow")
-#chunk.memory_usage().sum()
-
 
 
 

@@ -24,6 +24,37 @@ import datetime as dt
 
 from yahoofinancials import YahooFinancials
 
+import os
+
+
+#-------------------------
+#-----Path Definition-----
+#-------------------------
+
+
+# Use the current working directory or define the path for the working directory
+current_dir = os.getcwd()  # Use the current working directory
+current_dir = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/"  # Define the path for the working directory
+
+consolidated_data_path = os.path.join(current_dir,'Data/consolidated_data/')
+consolidated_results_path = os.path.join(current_dir,'Data/consolidated_results/')
+categories_data_path = os.path.join(current_dir,'Data/sa_publishers_category/')
+topics_sa_path = os.path.join(current_dir,'Data/sa_top_topics/')
+
+# Heavy Data directory
+heavy_data_path = "C:/Users/migue/Downloads/Thesis Data/"
+parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/')
+ebf_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/EBF_News/')
+ebf_sa_path = os.path.join(heavy_data_path,'SentimentAnalysisEBF/')
+topics_path = os.path.join(heavy_data_path,'BERTopics/')
+
+#-------------------------
+#----Load Stock Price-----
+#-------------------------
+
+
+
+
 tickers = ['^GSPC']
 
 yahoo_financials_info = YahooFinancials(tickers)
@@ -56,10 +87,23 @@ gspc_prices["returns"]= (gspc_prices['adjclose'] -gspc_prices['adjclose_lag1'])/
 gspc_prices.head()
 
 
-#Save
-#test_path = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Data/"
 
-#gspc_prices.to_csv(test_path+"GSPC.csv")
+#-------------------------
+#----Save Stock Price-----
+#-------------------------
+
+
+
+#Save
+gspc_prices.to_csv(consolidated_data_path+"GSPC.csv")
+
+
+
+#-------------------------
+#----Visualization--------
+#-------------------------
+
+
 
 dates_list = gspc_prices["formatted_date"]
 adjclose_list = gspc_prices["adjclose"]

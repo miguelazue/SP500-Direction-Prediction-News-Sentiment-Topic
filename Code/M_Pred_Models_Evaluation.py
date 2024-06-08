@@ -1,4 +1,9 @@
 
+"""
+Created on July 7 8:59:23 2023
+
+@author: migue
+"""
 
 import pandas as pd
 import numpy as np
@@ -27,11 +32,34 @@ import xlsxwriter
 
 import os
 
-os.chdir("C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/")
+#-------------------------
+#-----Path Definition-----
+#-------------------------
 
+# Use the current working directory or define the path for the working directory
+current_dir = os.getcwd()  # Use the current working directory
+current_dir = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/"  # Define the path for the working directory
+
+consolidated_data_path = os.path.join(current_dir,'Data/consolidated_data/')
+consolidated_results_path = os.path.join(current_dir,'Data/consolidated_results/')
+categories_data_path = os.path.join(current_dir,'Data/sa_publishers_category/')
+topics_sa_path = os.path.join(current_dir,'Data/sa_top_topics/')
+
+
+# Heavy Data directory - Recommended to store this data locally
+heavy_data_path = "C:/Users/migue/Downloads/Thesis Data/"
+parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/')
+ebf_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/EBF_News/')
+ebf_sa_path = os.path.join(heavy_data_path,'SentimentAnalysisEBF/')
+topics_path = os.path.join(heavy_data_path,'BERTopics/')
+
+
+#-------------------------
+#-Load Utility Script-----
+#-------------------------
+
+os.chdir(current_dir)
 import A_ThesisFunctions as tf
-
-
 
 #-------------------------
 #------Parameters---------
@@ -102,13 +130,13 @@ def evaluate_prediction_models(topic_model_year = "2016",
     #-Load Consolidated Data--
     #-------------------------
 
-    data_path = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Data/consolidated_data/"
+    consolidated_data_path
     load_data_name = "consolidated_data_" + consolidated_model_name + ".csv"
     # data_name = "consolidated_data_FinBERT_BERTopicModel2016Sample20k.csv"
     # load_data_name
 
     # Load Consolidated data
-    consolidated_data = pd.read_csv(data_path+load_data_name,index_col=0)
+    consolidated_data = pd.read_csv(consolidated_data_path+load_data_name,index_col=0)
 
     # Date Format
     consolidated_data["date"] = pd.to_datetime(consolidated_data["date"])
@@ -381,7 +409,6 @@ evaluate_prediction_models(classification_model_name = "nb_model")
 evaluate_prediction_models(classification_model_name = "gbc_model")
 
 
-
 evaluate_prediction_models(model_specs = "coin_flip")
 evaluate_prediction_models(model_specs = "zero_rate",test_period="2018-2019")
 evaluate_prediction_models(model_specs = "zero_rate",test_period="2017-2019")
@@ -455,8 +482,9 @@ consolidated_results_df.model.value_counts()
 
 # Save Path
 
-save_path = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Data/ConsolidatedResults/"
-consolidated_results_df.to_excel(save_path+"ConsolidatedResults4.xlsx",engine='xlsxwriter')  
+#save_path 
+consolidated_results_path
+consolidated_results_df.to_excel(consolidated_results_path+"ConsolidatedResults4.xlsx",engine='xlsxwriter')  
 
 
 
@@ -477,8 +505,9 @@ for test_period_i in test_period_LIST:
 
 
 
-save_path = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Data/ConsolidatedResults/"
-zero_rate_results_df.to_excel(save_path+"ZeroRateResults.xlsx",engine='xlsxwriter')  
+#save_path 
+consolidated_results_path
+zero_rate_results_df.to_excel(consolidated_results_path+"ZeroRateResults.xlsx",engine='xlsxwriter')  
 
 #-------------------------
 #--COIN FLIP EXPERIMENTS--
@@ -495,8 +524,9 @@ for test_period_i in test_period_LIST:
         coin_flip_results_df = pd.concat([coin_flip_results_df,results_i],ignore_index=True)
     iteration += 1
 
-save_path = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Data/ConsolidatedResults/"
-coin_flip_results_df.to_excel(save_path+"CoinFlipExperimentResults.xlsx",engine='xlsxwriter') 
+#save_path 
+consolidated_results_path
+coin_flip_results_df.to_excel(consolidated_results_path+"CoinFlipExperimentResults.xlsx",engine='xlsxwriter') 
 
 
 
@@ -583,5 +613,6 @@ for model_specs_i in model_specs_LIST:
                         iteration += 1
                         print(iteration)
 
-save_path = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Data/ConsolidatedResults/"
-fine_tuning_df.to_excel(save_path+"fine_tuning_df4.xlsx",engine='xlsxwriter')  
+#save_path 
+consolidated_results_path
+fine_tuning_df.to_excel(consolidated_results_path+"fine_tuning_df4.xlsx",engine='xlsxwriter')  

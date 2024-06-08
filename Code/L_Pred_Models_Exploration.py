@@ -1,4 +1,10 @@
 
+"""
+Created on July 7 8:59:23 2023
+
+@author: migue
+"""
+
 import pandas as pd
 import numpy as np
 
@@ -19,8 +25,33 @@ import matplotlib.pyplot as plt
 
 import os
 
-os.chdir("C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/")
+#-------------------------
+#-----Path Definition-----
+#-------------------------
 
+# Use the current working directory or define the path for the working directory
+current_dir = os.getcwd()  # Use the current working directory
+current_dir = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/"  # Define the path for the working directory
+
+consolidated_data_path = os.path.join(current_dir,'Data/consolidated_data/')
+consolidated_results_path = os.path.join(current_dir,'Data/consolidated_results/')
+categories_data_path = os.path.join(current_dir,'Data/sa_publishers_category/')
+topics_sa_path = os.path.join(current_dir,'Data/sa_top_topics/')
+
+
+# Heavy Data directory - Recommended to store this data locally
+heavy_data_path = "C:/Users/migue/Downloads/Thesis Data/"
+parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/')
+ebf_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/EBF_News/')
+ebf_sa_path = os.path.join(heavy_data_path,'SentimentAnalysisEBF/')
+topics_path = os.path.join(heavy_data_path,'BERTopics/')
+
+
+#-------------------------
+#-Load Utility Script-----
+#-------------------------
+
+os.chdir(current_dir)
 import A_ThesisFunctions as tf
 
 #-------------------------
@@ -32,13 +63,12 @@ model_year = "2016"
 model_headlines_count = "250"
 
 
-data_path = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Data/consolidated_data/"
 load_data_name = "consolidated_data_FinBERT_BERTopicModel"+model_year+"Headlines"+model_headlines_count+"k.csv"
 #data_name = "consolidated_data_BERTopicModel2016Sample20k.csv"
 
 
 
-consolidated_data = pd.read_csv(data_path+load_data_name,index_col=0)
+consolidated_data = pd.read_csv(consolidated_data_path+load_data_name,index_col=0)
 
 consolidated_data["date"] = pd.to_datetime(consolidated_data["date"])
 
@@ -81,7 +111,7 @@ consolidated_data.direction.value_counts()
 consolidated_data.year
 year_direction_balance = consolidated_data.groupby(['year','direction'])['date'].agg('count').reset_index()
 
-save_path = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Data/"
+
 #year_direction_balance.to_excel(save_path+"YearDirectionBalance.xlsx",engine='xlsxwriter')  
 
 
@@ -207,8 +237,7 @@ prediction = list(map(round, Yhat))
 dtree = DecisionTreeClassifier()
 dtree = dtree.fit(Xtrain, Ytrain)
 # tree.plot_tree(dtree, feature_names=model_variables)
-# test_path = "C:/Users/migue/Downloads/"
-# plt.savefig(test_path+'dtree500_t.png',dpi=500)
+# plt.savefig(heavy_data_path+'dtree500_t.png',dpi=500)
 
 Yhat = dtree.predict(Xtest)
 prediction = list(map(round, Yhat))

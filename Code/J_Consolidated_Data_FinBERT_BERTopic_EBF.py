@@ -2,14 +2,35 @@
 import pandas as pd
 import numpy as np
 
+import os
+
+#-------------------------
+#-----Path Definition-----
+#-------------------------
+
+# Use the current working directory or define the path for the working directory
+current_dir = os.getcwd()  # Use the current working directory
+current_dir = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/"  # Define the path for the working directory
+
+consolidated_data_path = os.path.join(current_dir,'Data/consolidated_data/')
+consolidated_results_path = os.path.join(current_dir,'Data/consolidated_results/')
+categories_data_path = os.path.join(current_dir,'Data/sa_publishers_category/')
+topics_sa_path = os.path.join(current_dir,'Data/sa_top_topics/')
+
+
+# Heavy Data directory - Recommended to store this data locally
+heavy_data_path = "C:/Users/migue/Downloads/Thesis Data/"
+parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/')
+ebf_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/EBF_News/')
+ebf_sa_path = os.path.join(heavy_data_path,'SentimentAnalysisEBF/')
+topics_path = os.path.join(heavy_data_path,'BERTopics/')
+
 
 #-------------------------
 #---Load Financial Data---
 #-------------------------
 
-gspc_path = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Data/"
-
-gspc_data = pd.read_csv(gspc_path+"GSPC.csv")
+gspc_data = pd.read_csv(consolidated_data_path+"GSPC.csv")
 
 
 selected_columns = ["formatted_date","time_trend","adjclose","returns"]
@@ -45,7 +66,7 @@ gspc_prices.rename(columns = {'formatted_date':'date'}, inplace = True)
 
 
 #LOAD
-topics_sa_path = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Data/sa_top_topics/"
+topics_sa_path 
 
 # Year Model
 model_year = "2016"
@@ -89,7 +110,7 @@ sa_topics = sa_topics.fillna(value=0)
 #-------------------------
 
 #LOAD
-categories_data_path = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Data/sa_publishers_category/"
+categories_data_path
 
 #Iterate over periods
 #years = [2017,2018,2019]
@@ -157,12 +178,12 @@ sa_and_prices = pd.merge(sa_topics_ebf,gspc_prices, left_on='date', right_on='da
 #sa_and_prices.describe()
 #len(sa_and_prices.columns)
 
-save_data_path = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Data/consolidated_data/"
+consolidated_data_path
 
 save_data_name = "consolidated_data_FinBERT_BERTopicModel"+model_year+article_text_type+model_articles_count+"k.csv"
 
 # sa_and_prices
-sa_and_prices.to_csv(save_data_path+save_data_name)
+sa_and_prices.to_csv(consolidated_data_path+save_data_name)
 
 
 

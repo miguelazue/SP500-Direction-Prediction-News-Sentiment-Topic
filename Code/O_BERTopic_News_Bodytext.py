@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Jan 12 14:19:23 2023
+Created on Thu July 12 14:19:23 2023
 
 Testing BERTopic
 
@@ -32,18 +32,41 @@ import torch
 
 import time
 
+import os
+
+#-------------------------
+#-----Path Definition-----
+#-------------------------
+
+# Use the current working directory or define the path for the working directory
+current_dir = os.getcwd()  # Use the current working directory
+current_dir = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/"  # Define the path for the working directory
+
+consolidated_data_path = os.path.join(current_dir,'Data/consolidated_data/')
+consolidated_results_path = os.path.join(current_dir,'Data/consolidated_results/')
+categories_data_path = os.path.join(current_dir,'Data/sa_publishers_category/')
+topics_sa_path = os.path.join(current_dir,'Data/sa_top_topics/')
+
+# Heavy Data directory - Recommended to store this data locally
+heavy_data_path = "C:/Users/migue/Downloads/Thesis Data/"
+parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/')
+ebf_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/EBF_News/')
+ebf_sa_path = os.path.join(heavy_data_path,'SentimentAnalysisEBF/')
+ebf_sa_full_article_path = os.path.join(heavy_data_path,'SentimentAnalysisFullArticleEBF/')
+topics_path = os.path.join(heavy_data_path,'BERTopics/')
+
 
 #-------------------------
 #--Load Financial News----
 #-------------------------
 
-ebf_parquet_path =  "C:/Users/migue/Downloads/Thesis Data/FilteredNewsParquets/EBF_News/"
+ebf_parquet_path
 
 
 #Read EBF Parquets
 dataset = pq.ParquetDataset(ebf_parquet_path,use_legacy_dataset=False)
 
-#parquet_path =  "C:/Users/migue/Downloads/Thesis Data/FilteredNewsParquets/"
+#parquet_path
 #dataset = pq.ParquetDataset(parquet_path,use_legacy_dataset=False)
 
 #Read by Filtered year
@@ -105,7 +128,7 @@ topics_info
 
 # topic_model.get_document_info(documents)
 #Topics Path
-topics_path = "C:/Users/migue/Downloads/Thesis Data/BERTopics/"
+topics_path
 
 #BERTopicModel2016Headlines20k
 

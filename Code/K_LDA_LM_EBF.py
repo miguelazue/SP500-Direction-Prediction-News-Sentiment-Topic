@@ -15,6 +15,7 @@ import pyarrow.parquet as pq
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
 import pysentiment2 as ps
+# https://nickderobertis.github.io/pysentiment/
 
 import time
 
@@ -24,12 +25,41 @@ import joblib
 
 import os
 
-os.chdir("C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/")
 
+#-------------------------
+#-----Path Definition-----
+#-------------------------
+
+# Use the current working directory or define the path for the working directory
+current_dir = os.getcwd()  # Use the current working directory
+current_dir = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/"  # Define the path for the working directory
+
+consolidated_data_path = os.path.join(current_dir,'Data/consolidated_data/')
+consolidated_results_path = os.path.join(current_dir,'Data/consolidated_results/')
+categories_data_path = os.path.join(current_dir,'Data/sa_publishers_category/')
+topics_sa_path = os.path.join(current_dir,'Data/sa_top_topics/')
+
+
+# Heavy Data directory - Recommended to store this data locally
+heavy_data_path = "C:/Users/migue/Downloads/Thesis Data/"
+parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/')
+ebf_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/EBF_News/')
+ebf_sa_path = os.path.join(heavy_data_path,'SentimentAnalysisEBF/')
+topics_path = os.path.join(heavy_data_path,'BERTopics/')
+
+
+#-------------------------
+#-Load Utility Script-----
+#-------------------------
+
+os.chdir(current_dir)
 import A_ThesisFunctions as thesisF
 
 
-# https://nickderobertis.github.io/pysentiment/
+#-------------------------
+#--Execution Parameters---
+#-------------------------
+
 
 
 # Year Model
@@ -46,14 +76,12 @@ model_name = "LDAmodel"+model_year+"Headlines"+model_headlines_count+"k" + str(n
 #Iterate over files
 #year_i = 2017
 year_i = 2016
-model_path = "C:/Users/migue/Downloads/Thesis Data/BERTopics/"
 
 
 #-------------------------
 #--Load Financial News----
 #-------------------------
 
-ebf_parquet_path =  "C:/Users/migue/Downloads/Thesis Data/FilteredNewsParquets/EBF_News/"
 
 #Read EBF Parquets
 dataset = pq.ParquetDataset(ebf_parquet_path,use_legacy_dataset=False)
@@ -123,21 +151,21 @@ len(tf_feature_names)
 
 
 # Save LDA Model with 300 topics
-#with open(model_path+model_name+".pkl", 'wb') as fp:
+#with open(topics_path+model_name+".pkl", 'wb') as fp:
 #     pickle.dump(lda,fp)
 
 
 
 # Save in a Joblib file
-#joblib.dump(lda, model_path+model_name+".joblib")
+#joblib.dump(lda, topics_path+model_name+".joblib")
 
 
 # Load the LDA
-with open(model_path+model_name+".pkl", 'rb') as fp:
+with open(topics_path+model_name+".pkl", 'rb') as fp:
     lda = pickle.load(fp)
 
 # Load LDA Model from a joblib file
-# lda = joblib.load(model_path+"LDAmodel2016Sample20k.joblib")
+# lda = joblib.load(topics_path+"LDAmodel2016Sample20k.joblib")
 
 # Topics Data Frame
 topics_df = pd.DataFrame({'topic': pd.Series(dtype='string'),'terms': pd.Series(dtype='string')})
@@ -164,7 +192,7 @@ correlated_topics = topics_df[topics_df["topic"].isin(selected_topics)]
 correlated_topics.head(30)
 
 
-topics_df.to_csv(model_path+"topics_"+model_name+".csv")
+topics_df.to_csv(topics_path+"topics_"+model_name+".csv")
 
 # In case needed to establish a new count vectorizer
 # lda_n_features = lda.n_features_in_
@@ -189,7 +217,7 @@ years_list = preprocessed_df['year']
 
 
 # Load the LDA
-with open(model_path+model_name+".pkl", 'rb') as fp:
+with open(topics_path+model_name+".pkl", 'rb') as fp:
     lda = pickle.load(fp)
 
 
@@ -303,9 +331,9 @@ full_lda_lm_summary
 
 
 #save path
-save_path = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Data/sa_top_topics/"
+topics_sa_path
 save_name = "sa_top_topics_"+"LDATopicModel"+model_year+"Headlines"+model_headlines_count+"k_news"+str(year_i)+".csv"
-full_lda_lm_summary.to_csv(save_path+save_name)
+full_lda_lm_summary.to_csv(topics_sa_path+save_name)
 
 
 
@@ -316,7 +344,7 @@ full_lda_lm_summary.to_csv(save_path+save_name)
 
 
 #LOAD
-topics_sa_path = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Data/sa_top_topics/"
+topics_sa_path
 
 # Year Model
 model_year = "2016"
@@ -357,9 +385,8 @@ full_lda_lm
 #-Joining Financial Data--
 #-------------------------
 
-gspc_path = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Data/"
 
-gspc_data = pd.read_csv(gspc_path+"GSPC.csv")
+gspc_data = pd.read_csv(consolidated_data_path+"GSPC.csv")
 
 
 selected_columns = ["formatted_date","time_trend","adjclose","returns"]
@@ -387,15 +414,15 @@ full_lda_lm_prices = pd.merge(full_lda_lm,gspc_prices, left_on='date', right_on=
 full_lda_lm_prices
 
 
-save_data_path = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Data/consolidated_data/"
-
+#save_path
+consolidated_data_path
 save_data_name = "consolidated_data_LM_LDATopicModel"+model_year+"Headlines"+model_headlines_count+"k.csv"
 
 # sa_and_prices
 #full_lda_lm_prices.to_csv(save_data_path+save_data_name)
 
 #Load
-full_lda_lm_prices = pd.read_csv(save_data_path+save_data_name)
+full_lda_lm_prices = pd.read_csv(consolidated_data_path+save_data_name)
 
 
 
