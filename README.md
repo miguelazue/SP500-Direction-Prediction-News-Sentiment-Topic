@@ -76,7 +76,7 @@ While the previous codes can be executed on a regular laptop as they used the he
 ### Data
 This directory is available in the Github Repository
 
-- `consolidated_data/`: Preprocessed data
+- `consolidated_data/`: Folder with files that consolidate the preprocessed data
 - `consolidated_results/`: Folder for storing the obtained results
 - `sa_publishers_category/`: Folder with the summary files that contain the average sentiment score per day for every publisher category
 - `sa_top_topics/`: Folder with the summary files that contain the average sentiment score per day for each topic (From the top 30 most correlated topics).
