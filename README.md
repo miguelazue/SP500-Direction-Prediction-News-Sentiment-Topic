@@ -27,6 +27,8 @@ The different steps of the thesis can be replicated, including data preparation,
 3. Run the desired code corresponding to the step you want to replicate. You may need to adjust the code with desired parameters or modify the paths to read the input data and store the results.
 4. Explore the obtained results to analyze the findings of the replicated steps.
 
+*Recommendations: Some files are very heavy, such as the components dataset which has a size of Size: 3.4 GB compressed, 8.8 GB uncompressed. This is why it is recommended to store some of the files locally instead of using cloud storage (dropbox or github). The code indicates an absolute path for these cases and a relative path for the rest.
+
 ## Code Overview
 This repository contains multiple scripts, each serving a specific purpose in the analysis pipeline. Here's a brief overview of each set of scripts:
 
