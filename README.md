@@ -84,9 +84,10 @@ This directory is available in the Github Repository
 ### Heavy Data
 This directory is not available in the Gihub Repository as it stores large files. It is recommended that a local directory is used to store these kind of data as the size can exceed the 1GB. Specify the directory in the Path Definition of the codes.
 
-- `all-the-news-2-1/`: Folder with the all-the-news-2-1.csv file
+- `all-the-news-2-1/`: Folder with the file all-the-news-2-1.csv
 - `FilteredNewsParquets/`: Folder with the processed parquet files organized by Publisher category and by year.
 - `SentimentAnalysisEBF/`: Folder with the processed parquet files of the EBF news with the calculated sentiment score.
+- `SentimentAnalysisFullArticleEBF/`: Folder with the processed parquet files of the EBF news with the full article and with the calculated sentiment score. 
 - `BERTopics/`: folder with the trained topic models.
   
 ### Formatted Results
