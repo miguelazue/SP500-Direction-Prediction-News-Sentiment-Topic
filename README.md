@@ -27,7 +27,7 @@ The thesis can be fully replicated or specific steps of the thesis pipline inclu
 4. Run the desired code corresponding to the step you want to replicate. Parameter values can be adjusted in the parameters section.
 5. Explore the obtained results to analyze the findings of the replicated steps.
 
-*Recommendations:  At the beginning of every script, there is a section named "Path Definition," where you can define paths using the current working directory or specify a particular directory path. Some files are large; for example, the "All the News 2.0" dataset is 8.8 GB, and a trained topic model can exceed 1 GB in size. Considering this, a separate directory is defined for these large files, referred to as the "Large Data" directory. Due to the large size of these files, it is recommended to store the "Large_Data" directory locally instead of using cloud storage (e.g., Dropbox or GitHub). However, if space is not an issue, the "Large_Data" directory can also be defined within the same working directory.
+*Path Definition Recommendations:  At the beginning of every script, there is a section named "Path Definition," where you can define paths using the current working directory or specify a particular directory path. Some files are large; for example, the "All the News 2.0" dataset is 8.8 GB, and a trained topic model can exceed 1 GB in size. Considering this, a separate directory is defined for these large files, referred to as the "Large Data" directory. Due to the large size of these files, it is recommended to store the "Large_Data" directory locally instead of using cloud storage (e.g., Dropbox or GitHub). However, if space is not an issue, the "Large_Data" directory can also be defined within the same working directory.
 
 
 ## Code Overview
