@@ -81,7 +81,7 @@ This directory is available in the Github Repository with intermediate data file
 - `sa_publishers_category/`: Folder with the summary files that contain the average sentiment score per day for every publisher category
 - `sa_top_topics/`: Folder with the summary files that contain the average sentiment score per day for each topic (From the top 30 most correlated topics).
 
-### Heavy Data - Directory
+### Large Data - Directory
 It is recommended to define a local directory for the inital dataset to be stored and some preprocessed data files. The inital dataset is around 8 GB in size, and some intermediate files are greater than 1GB. Expect this directory to be above 15GB if you run all the codes.
 
 - `all-the-news-2-1/`: Folder downloaded from "All the News 2.0" containing the file all-the-news-2-1.csv
@@ -90,5 +90,5 @@ It is recommended to define a local directory for the inital dataset to be store
 - `sentiment_analysis_full_article_EBF/`: Folder with the processed parquet files of the EBF news with the full article and with the calculated sentiment score. 
 - `BERTopics/`: folder with the trained topic models.
   
-### Formatted Results
+### Formatted Results - Directory
 Folder with excel files that display the results in a format that is easier to understand and interpret
