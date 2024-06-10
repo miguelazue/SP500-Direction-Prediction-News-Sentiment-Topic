@@ -38,7 +38,7 @@ This repository contains multiple scripts, each serving a specific purpose in th
 
 ### Data Collection and Preparation
 - `B_DataPreprocessing_FinancialData.py`: Extracting info from the yahoo library to extract the S&P500 adjclose prices for 2016 to 2020.
-- `C_DataPreprocessing_News.py`: Reading the csv file of AllTheNews2.0, preprocessing them and saving them in parquets files. (The resulting processed dataset will be stored in the `Large_Data/` directory)
+- `C_DataPreprocessing_News.py`: Reading the csv file of AllTheNews2.0, preprocessing them and saving them in parquets files. (The resulting processed files will be stored in the `Large_Data/` directory)
 
 ### Correlation Analysis: Financial data and Sentiment Analysis by Publisher Category 
 - `D_FinBERT_Publishers_Categories.py`: Categorizing publishers type and storing a summary of the sentiment score per day per publisher type. 1 File per yearmonth stored in `/Data/sa_publishers_category/`. Example: `sa_publishers_category_201601.csv`
