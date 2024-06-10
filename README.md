@@ -82,7 +82,7 @@ This directory is available in the Github Repository with intermediate data file
 - `sa_top_topics/`: Folder with the summary files that contain the average sentiment score per day for each topic (From the top 30 most correlated topics).
 
 ### Large_Data - Directory
-It is recommended to define a local directory for this directory as it will store the inital dataset and large preprocessed data files. The inital dataset is around 8 GB in size, and some intermediate files are greater than 1GB. Expect this directory to be above 15GB if you run all the codes.
+It is recommended to define a local directory for this directory as it will store the inital dataset and large preprocessed data files. The inital dataset is around 8 GB in size, and some intermediate files are greater than 1GB. Expect this directory to be above 15GB if you run all the codes. This directory and the files are not uploaded in this Github Repository.
 
 - `all-the-news-2-1/`: Folder downloaded from "All the News 2.0" containing the file all-the-news-2-1.csv
 - `filtered_news_parquets/`: Folder with the processed parquet files organized by Publisher category and by year.
