@@ -45,10 +45,10 @@ This repository contains multiple scripts, each serving a specific purpose in th
 - `E_FinBERT_Publishers_SP500_Corr.py`: Correlation analysis between the sentiment score of the publisher type and the returns of the S&P500
 
 ### Sentiment Analysis
-- `F_FinBERT_EBF_Headlines.py`: Executing and storing the sentiment analysis for all the EBF news in Parquet Files. (The resulting processed dataset is not included in this repository due to its large size)
+- `F_FinBERT_EBF_Headlines.py`: Executing and storing the sentiment analysis for all the EBF news in Parquet Files. (The resulting processed files will be stored in the `Large_Data/` directory)
 
 ### Topic Modeling
-- `G_BERTopic_News.py`: Training and storing the topic models. LDA topics are stored in pickle files. Examples: `BERTopicModel2016Sample250k` and `LDAmodel2016Headlines250k30Topics.pkl`.(The resulting files are not included in this repository due to its large size)
+- `G_BERTopic_News.py`: Training and storing the topic models. LDA topics are stored in pickle files. Examples: `BERTopicModel2016Sample250k` and `LDAmodel2016Headlines250k30Topics.pkl`.(The resulting processed files will be stored in the `Large_Data/` directory)
 
 ### Correlation Analysis for Topics Selection: Financial data, Sentiment Analysis and Topics 
 - `H_FinBERT_BERTopic_EBF_SP500_Corr.py`: Correlation analysis between the sentiment score of the topics and the returns of the S&P500
