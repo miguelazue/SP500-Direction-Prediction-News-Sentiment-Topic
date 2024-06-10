@@ -23,22 +23,32 @@ import os
 #-----Path Definition-----
 #-------------------------
 
+# Working Directory Definition
+# Use the current working directory or define the path for the working directory. Use option 1 by by commenting option 2
+current_dir = os.getcwd()  # Option 1: Use the current working directory.
+current_dir = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/Data/"  # Option 2: Define the path for the working directory
 
-# Use the current working directory or define the path for the working directory
-current_dir = os.getcwd()  # Use the current working directory
-current_dir = "C:/Users/migue/Dropbox/JKU EBA Masters/Master Thesis/"  # Define the path for the working directory
+# Large Size Data Directory Definition
+# It is Recommended to store this data locally, if space is not a problem larga data directory can be included in the current dir by commenting option 2
+large_data_path = current_dir # Option 1: Large data directory in the working directory
+large_data_path = "C:/Users/migue/Downloads/Large_Data/" # Option 2: Define the path for large data storage
 
-consolidated_data_path = os.path.join(current_dir,'Data/consolidated_data/')
-consolidated_results_path = os.path.join(current_dir,'Data/consolidated_results/')
-categories_data_path = os.path.join(current_dir,'Data/sa_publishers_category/')
-topics_sa_path = os.path.join(current_dir,'Data/sa_top_topics/')
+#-------------------------
+#-----Relative Paths------
+#-------------------------
 
-# Heavy Data directory
-heavy_data_path = "C:/Users/migue/Downloads/Thesis Data/"
-parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/')
-ebf_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/EBF_News/')
-ebf_sa_path = os.path.join(heavy_data_path,'SentimentAnalysisEBF/')
-topics_path = os.path.join(heavy_data_path,'BERTopics/')
+# relative paths associated with current_dir
+consolidated_data_path = os.path.join(current_dir,'consolidated_data/')
+consolidated_results_path = os.path.join(current_dir,'consolidated_results/')
+categories_data_path = os.path.join(current_dir,'sa_publishers_category/')
+topics_sa_path = os.path.join(current_dir,'sa_top_topics/')
+
+# relative paths associated with large_data_path
+parquet_path = os.path.join(large_data_path,'filtered_news_parquets/')
+ebf_parquet_path = os.path.join(large_data_path,'filtered_news_parquets/EBF_News/')
+ebf_sa_path = os.path.join(large_data_path,'sentiment_analysis_EBF/')
+ebf_sa_full_article_path = os.path.join(large_data_path,'sentiment_analysis_full_article_EBF/')
+topics_path = os.path.join(large_data_path,'BERTopics/')
 
 #-------------------------
 #-----Saving Parquets-----
@@ -47,7 +57,7 @@ topics_path = os.path.join(heavy_data_path,'BERTopics/')
 
 file1 = "all-the-news-2-1.csv"
 
-news_path = os.path.join(heavy_data_path,'all-the-news-2-1/')
+news_path = os.path.join(large_data_path,'all-the-news-2-1/')
 
 filename = news_path+file1
 
@@ -239,22 +249,22 @@ selected_columns = [
 
 #EBF
 ebf_filtered_news = read_and_filter_chunks(df_chunks=my_file,relevant_columns = selected_columns, relevant_publishers = ebf_publishers)
-ebf_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/EBF_News/')
+ebf_parquet_path = os.path.join(large_data_path,'FilteredNewsParquets/EBF_News/')
 df_to_multiple_plarquets(df_to_slice = ebf_filtered_news,save_path=ebf_parquet_path)
 
 #GEN
 gen_filtered_news = read_and_filter_chunks(df_chunks=my_file,relevant_columns = selected_columns, relevant_publishers = gen_publishers)
-gen_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/GEN_News/')
+gen_parquet_path = os.path.join(large_data_path,'FilteredNewsParquets/GEN_News/')
 df_to_multiple_plarquets(df_to_slice = gen_filtered_news,save_path=gen_parquet_path)
 
 #POL
 pol_filtered_news = read_and_filter_chunks(df_chunks=my_file,relevant_columns = selected_columns, relevant_publishers = pol_publishers)
-pol_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/POL_News/')
+pol_parquet_path = os.path.join(large_data_path,'FilteredNewsParquets/POL_News/')
 df_to_multiple_plarquets(df_to_slice = pol_filtered_news,save_path=pol_parquet_path)
 
 #ENT
 ent_filtered_news = read_and_filter_chunks(df_chunks=my_file,relevant_columns = selected_columns, relevant_publishers = ent_publishers)
-ent_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/ENT_News/')
+ent_parquet_path = os.path.join(large_data_path,'FilteredNewsParquets/ENT_News/')
 df_to_multiple_plarquets(df_to_slice = ent_filtered_news,save_path=ent_parquet_path)
 
 
@@ -291,12 +301,10 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 
 
-#Paths
-parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/')
-ebf_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/EBF_News/')
-gen_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/GEN_News/')
-pol_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/POL_News/')
-ent_parquet_path = os.path.join(heavy_data_path,'FilteredNewsParquets/ENT_News/')
+#Paths for the other publisher types
+gen_parquet_path = os.path.join(large_data_path,'FilteredNewsParquets/GEN_News/')
+pol_parquet_path = os.path.join(large_data_path,'FilteredNewsParquets/POL_News/')
+ent_parquet_path = os.path.join(large_data_path,'FilteredNewsParquets/ENT_News/')
 
 #Read all Parquets
 dataset = pq.ParquetDataset(parquet_path,use_legacy_dataset=False)
