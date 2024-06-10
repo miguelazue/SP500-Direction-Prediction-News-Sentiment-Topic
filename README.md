@@ -27,7 +27,7 @@ The thesis can be fully replicated or specific steps of the thesis pipline inclu
 4. Run the desired code corresponding to the step you want to replicate. Parameter values can be adjusted in the parameters section.
 5. Explore the obtained results to analyze the findings of the replicated steps.
 
-*Recommendations: Some files are heavy, "All the News 2.0" dataset  has a size  8.8 GB and a trained topic model can exceed a 1GB in size. Due to the large size, it is recommended to store these files locally instead of using cloud storage (e.g., Dropbox or GitHub). At the begining of every script is a section named "Path Definition", in which the paths can be defined with the current working directory or with a predefined directory. 
+*Recommendations: Some files are large, "All the News 2.0" dataset  has a size  8.8 GB and a trained topic model can exceed a 1GB in size. Due to the large size, it is recommended to store these files locally instead of using cloud storage (e.g., Dropbox or GitHub). At the begining of every script is a section named "Path Definition", in which the paths can be defined with the current working directory, with a predefined directory. The large data directory can also be defined to be in the working directory or in a diferent directory.
 
 
 ## Code Overview
