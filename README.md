@@ -23,7 +23,7 @@ The dataset used in this project is the "All the News 2.0". Consolidation of new
 The thesis can be fully replicated or specific steps of the thesis pipline including data preparation, sentiment analysis, topic modeling, classification model training and classification model evaluation. To replicate the results of the thesis, follow these steps:
 
 1. Install the required dependencies listed in `requirements.txt` and download the utility script `A_ThesisFunctions.py`
-2. Download the [dataset](https://components.one/datasets/all-the-news-2-news-articles-dataset) and save it in the `Large_Data Directory/` if you want to replicate all the thesis. If a specific step of the thesis wants to be replicated, you can download the already preprocessed data from the `/Data` directory. 
+2. Download the [dataset](https://components.one/datasets/all-the-news-2-news-articles-dataset) and save it in the `Large_Data/` directory if you want to replicate all the thesis. If a specific step of the thesis wants to be replicated, you can download the already preprocessed data from the `/Data` directory. 
 4. Run the desired code corresponding to the step you want to replicate. Parameter values can be adjusted in the parameters section.
 5. Explore the obtained results to analyze the findings of the replicated steps.
 
