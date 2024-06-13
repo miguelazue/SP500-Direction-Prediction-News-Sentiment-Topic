@@ -91,4 +91,4 @@ It is recommended to define a local directory for this directory as it will stor
 - `BERTopics/`: folder with the trained topic models.
   
 ### Formatted_Results - Directory
-Folder with excel files that display the results in a format that is easier to understand and interpret. It is available in the Github Repository with intermediate data files and results.
+Folder with excel files that display the results in a format that is easier to understand and interpret. It is available in the Github Repository.
