@@ -38,7 +38,7 @@ This repository contains multiple scripts, each serving a specific purpose in th
 - `A_ThesisFunctions.py`: Contains utility functions used across multiple scripts, such as data loading, processing, saving, and others.
 
 ### Data Collection and Preparation
-- `A_DatasetDownload.py`: The script downloads the zip file "All the News 2.0" and unzips it in the specified directory.
+- `A_DatasetDownload.py`: Downloading the zip file "All the News 2.0" and unzipping it in the directory.
 - `B_DataPreprocessing_FinancialData.py`: Extracting info from the yahoo library to extract the S&P500 adjclose prices for 2016 to 2020.
 - `C_DataPreprocessing_News.py`: Reading the csv file of AllTheNews2.0, preprocessing them and saving them in parquets files. (The resulting processed files will be stored in the `Large_Data/` directory)
 
