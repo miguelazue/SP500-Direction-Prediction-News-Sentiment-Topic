@@ -23,7 +23,8 @@ The dataset used in this project is the "All the News 2.0". Consolidation of new
 The thesis can be fully replicated or specific steps of the thesis pipeline including data preparation, sentiment analysis, topic modeling, classification model training and classification model evaluation. To replicate the results of the thesis, follow these steps:
 
 1. Install the required dependencies listed in `requirements.txt` and download the utility script `A_ThesisFunctions.py`
-2. Download the [dataset](https://components.one/datasets/all-the-news-2-news-articles-dataset) and save it in the `Large_Data/` directory if you want to replicate all the thesis. If a specific step of the thesis wants to be replicated, you can download the already preprocessed data from the `Data/` directory. 
+2. If all the thesis wants to be replicated, execute the "A_DatasetDownload.py" script to download "All the News 2.0" dataset or download the [dataset](https://components.one/datasets/all-the-news-2-news-articles-dataset) and save it in the `Large_Data/` directory if you want to replicate all the thesis.
+3. If a specific step of the thesis wants to be replicated, you can download the already preprocessed data from the `Data/` directory. 
 4. Run the desired code corresponding to the step you want to replicate. Parameter values can be adjusted in the parameters section.
 5. Explore the obtained results to analyze the findings of the replicated steps.
 
@@ -37,6 +38,7 @@ This repository contains multiple scripts, each serving a specific purpose in th
 - `A_ThesisFunctions.py`: Contains utility functions used across multiple scripts, such as data loading, processing, saving, and others.
 
 ### Data Collection and Preparation
+- `A_DatasetDownload.py`: The script downloads the zip file "All the News 2.0" and unzips it in the specified directory.
 - `B_DataPreprocessing_FinancialData.py`: Extracting info from the yahoo library to extract the S&P500 adjclose prices for 2016 to 2020.
 - `C_DataPreprocessing_News.py`: Reading the csv file of AllTheNews2.0, preprocessing them and saving them in parquets files. (The resulting processed files will be stored in the `Large_Data/` directory)
 
