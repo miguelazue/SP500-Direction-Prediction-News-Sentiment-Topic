@@ -89,7 +89,7 @@ zip_file_name = "all-the-news-2-1.zip"
 #-------------------------
 
 zip_file_path = os.path.join(large_data_path,zip_file_name)
-
+news_path = os.path.join(large_data_path,'all-the-news-2-1/')
 
 # Ensure the directory exists if not creates it
 if not os.path.exists(large_data_path):
@@ -102,7 +102,7 @@ print("Download complete.")
 
 # Unzip the file
 print("Unzipping file...")
-unzip_file(zip_file_path, large_data_path)
+unzip_file(zip_file_path, news_path)
 print("Unzipping complete.")
 
 # delete the zip file after extraction
